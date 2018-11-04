@@ -1,0 +1,25 @@
+{
+  "name": "rpgbaker",
+  "version": "1.0.0",
+  "description": "minimalist and useless game engine (with rpg elements)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DomDumont/rpgbaker.git"
+  },
+  "keywords": [
+    "game"
+  ],
+  "author": "Dominique Dumont",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DomDumont/rpgbaker/issues"
+  },
+  "homepage": "https://github.com/DomDumont/rpgbaker#readme"
+}
