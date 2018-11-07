@@ -7,3 +7,7 @@ It's the best way for me to learn javascript
 Please check the demo
 
 [Here](https://github.com/DomDumont/rpgbaker-demo)
+
+Or the Online demo
+
+[Here](https://domdumont.github.io/rpgbaker-demo/)

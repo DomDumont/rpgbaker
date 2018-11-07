@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: room.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,42 +17,46 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: room.js</h1>
 
     
 
 
 
     
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
     <section>
-        <article><p>I've always prefer to create tools than to create a game.
-So let's make another small and useless engine :-)
-It's the best way for me to learn javascript</p>
-<h3>Crazy enough to try ?</h3><p>Please check the demo</p>
-<p><a href="https://github.com/DomDumont/rpgbaker-demo">Here</a></p>
-<p>Or the Online demo</p>
-<p><a href="https://domdumont.github.io/rpgbaker-demo/">Here</a></p></article>
+        <article>
+            <pre class="prettyprint source linenums"><code>const PIXI = require('pixi.js')
+/** This is a description of the Room
+ *
+ */
+export class Room extends PIXI.Container {
+  constructor () {
+    super()
+    this.gaos = []
+    this.game = undefined
+  }
+  /** This is a description of the Init function. */
+  Init () {
+    this.gaos.forEach(element => {
+      element.Init()
+    })
+  }
+  /** This is a description of the Update function. */
+  Update (delta) {
+    this.gaos.forEach(element => {
+      element.Update(delta)
+    })
+  }
+
+  AddGAO (newObject) {
+    this.gaos.push(newObject)
+    this.addChild(newObject)
+  }
+}
+</code></pre>
+        </article>
     </section>
-
-
 
 
 
