@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "babel src --out-dir lib",
-    "docs": "jsdoc  src -r src/README.md -u src/tutorials  -d docs"
+    "docs": "jsdoc  src -r src/README.md -u ./tutorials  -d docs"
   },
   "babel": {
     "presets": [

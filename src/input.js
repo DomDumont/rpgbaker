@@ -44,3 +44,10 @@ export class Input {
     this.realStates[key] = false
   }
 }
+
+// TODO Should probably be elsewhere
+Input.vk_escape = 27
+Input.vk_left = 37
+Input.vk_up = 38
+Input.vk_right = 39
+Input.vk_down = 40

@@ -6,6 +6,9 @@ require('./pixi-layers')
 
 export * from './input.js'
 export * from './room.js'
+export * from './gameobject.js'
+export * from './tilemap.js'
+export * from './tilelayer.js'
 
 /** Game Class  */
 export class Game {
