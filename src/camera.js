@@ -11,6 +11,7 @@ export class Camera {
   }
 
   Update (delta) {
+    return
     // console.log(this.parent.width)
     // console.log(this.parent.app.renderer.height)
     if (this.gaoToFollow) {
