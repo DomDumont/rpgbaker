@@ -1,6 +1,14 @@
 /** Input Class  */
+
 export class Input {
   constructor () {
+    // TODO Should probably be elsewhere
+    this.vk_escape = 27
+    this.vk_left = 37
+    this.vk_up = 38
+    this.vk_right = 39
+    this.vk_down = 40
+
     this.keyStates = new Array(256)
     this.previousKeyStates = new Array(256)
     this.realStates = new Array(256)
@@ -44,10 +52,3 @@ export class Input {
     this.realStates[key] = false
   }
 }
-
-// TODO Should probably be elsewhere
-Input.vk_escape = 27
-Input.vk_left = 37
-Input.vk_up = 38
-Input.vk_right = 39
-Input.vk_down = 40
