@@ -4,7 +4,7 @@
   "description": "minimalist and useless game engine (with rpg elements)",
   "main": "lib/index.js",
   "scripts": {
-    "build": "babel src --out-dir lib",
+    "build": "babel src --out-dir lib --watch",
     "docs": "jsdoc  src -r src/README.md -u ./tutorials  -d docs"
   },
   "babel": {
