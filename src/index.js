@@ -9,6 +9,7 @@ export * from './room.js'
 export * from './gameobject.js'
 export * from './tilemap.js'
 export * from './tilelayer.js'
+export * from './utils.js'
 
 /** Game Class  */
 export class Game {

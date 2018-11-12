@@ -1,4 +1,4 @@
-import utils from './utils'
+import { Utils } from './utils'
 const PIXI = require('pixi.js')
 
 export class GameObject extends PIXI.Container {
@@ -33,7 +33,7 @@ export class GameObject extends PIXI.Container {
     for (let i = 0; i < gaos.length; i++) {
       let element = gaos[i]
       if (classNameToCheck.name === element.constructor.name) {
-        if (utils.hitTestRectangle(this, element) === true) {
+        if (Utils.HitTestRectangle(this, element) === true) {
           isThereSomethingUnder = true
         }
       }

@@ -8,6 +8,7 @@ export class Input {
     this.vk_up = 38
     this.vk_right = 39
     this.vk_down = 40
+    this.vk_left_shift = 16
 
     this.keyStates = new Array(256)
     this.previousKeyStates = new Array(256)
