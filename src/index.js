@@ -63,10 +63,10 @@ export class Game {
   OnLoadedDone () {
     // Start the game loop
     console.log('OnLoadedDone')
-    for (let [key, val] of this.rooms.entries()) {
-      console.debug(key)
-      val.Init()
-    }
+    // for (let [key, val] of this.rooms.entries()) {
+    //   console.debug(key)
+    //   val.Init()
+    // }
 
     this.app.ticker.add(delta => this.Update(delta))
   }
@@ -93,7 +93,10 @@ export class Game {
 
   CheckRoomTransition () {
     if (this.currentRoomKey !== this.nextRoomKey) {
+      let currentRoom = this.rooms.get(this.currentRoomKey)
+      if (currentRoom) currentRoom.Destroy()
       this.currentRoomKey = this.nextRoomKey
+      this.rooms.get(this.currentRoomKey).Init()
       for (let [, val] of this.rooms.entries()) {
         val.visible = false
       }

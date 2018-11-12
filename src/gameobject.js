@@ -17,6 +17,10 @@ export class GameObject extends PIXI.Container {
   }
   /** This is a description of the Init function. */
   Init () {}
+
+  /** This is a description of the Destroy function. */
+  Destroy () {}
+
   /** This is a description of the Update function. */
   Update (delta) {}
 

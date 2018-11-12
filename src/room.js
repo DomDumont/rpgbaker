@@ -14,6 +14,7 @@ export class Room extends PIXI.Container {
       element.Init()
     })
   }
+
   /** This is a description of the Update function. */
   Update (delta) {
     this.gaos.forEach(element => {
@@ -24,5 +25,13 @@ export class Room extends PIXI.Container {
   AddGAO (newObject) {
     this.gaos.push(newObject)
     this.addChild(newObject)
+  }
+
+  Destroy () {
+    this.gaos.forEach(element => {
+      element.Destroy()
+    })
+    this.removeChildren()
+    this.gaos = []
   }
 }
