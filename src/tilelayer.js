@@ -21,24 +21,30 @@ export class TileLayer extends PIXI.Container {
         if (!tileIdx) {
           return
         }
-        tileIdx = tileIdx - 1
-        let imgX =
-          (tileIdx % (this.parent.imageWidth / this.parent.tileWidth)) *
-          this.parent.tileWidth
-        let imgY =
-          ~~(tileIdx / (this.parent.imageHeight / this.parent.tileHeight)) *
-          this.parent.tileHeight
 
-        let destX = (i % this.jsonObject.width) * this.parent.tileWidth
-        let destY = ~~(i / this.jsonObject.width) * this.parent.tileWidth
+        // Here find the right tileset
+        let chosenTileset = this.parent.FindTilesetForGID(tileIdx)
+        if (tileIdx === 1490) {
+          console.log('coucou')
+        }
+        tileIdx = tileIdx - chosenTileset.firstGid
+        let imgX =
+          (tileIdx % (chosenTileset.imageWidth / chosenTileset.tileWidth)) *
+          chosenTileset.tileWidth
+        let imgY =
+          ~~(tileIdx / (chosenTileset.imageWidth / chosenTileset.tileWidth)) *
+          chosenTileset.tileWidth
+
+        let destX = (i % this.jsonObject.width) * chosenTileset.tileWidth
+        let destY = ~~(i / this.jsonObject.width) * chosenTileset.tileWidth
 
         let tempTexture = new PIXI.Texture(
-          this.parent.texture,
+          chosenTileset.texture,
           new PIXI.Rectangle(
             imgX,
             imgY,
-            this.parent.tileWidth,
-            this.parent.tileWidth
+            chosenTileset.tileWidth,
+            chosenTileset.tileWidth
           )
         )
 

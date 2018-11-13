@@ -13,7 +13,7 @@ export class Camera {
 
   Update (delta) {
     // console.log(this.parent.width)
-    console.log(this.parent.app.renderer.height)
+    // console.log(this.parent.app.renderer.height)
     if (this.gaoToFollow) {
       this.parent.app.stage.position.x =
         -this.gaoToFollow.x + this.parent.app.renderer.width / 2

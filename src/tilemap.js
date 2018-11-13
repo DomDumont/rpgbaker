@@ -1,4 +1,5 @@
 import { TileLayer } from './tilelayer'
+import { TileSet } from './tileset'
 
 const PIXI = require('pixi.js')
 
@@ -9,18 +10,17 @@ export class TileMap extends PIXI.Container {
     super()
     this.jsonObject = jsonObject
     this.layers = {}
+    this.tilesets = {}
     this.loadCallback = loadCallback
   }
 
   // TODO Change this
-  Init (newTexture) {
-    this.imageWidth = this.jsonObject.tilesets[0].imagewidth
-    this.imageHeight = this.jsonObject.tilesets[0].imageheight
-    this.tileWidth = this.jsonObject.tilesets[0].tilewidth
-    this.tileHeight = this.jsonObject.tilesets[0].tileheight
-
-    console.log(this.jsonObject.tilesets[0].image) // TODO Change this
-    this.texture = PIXI.loader.resources[newTexture].texture // TODO Change this
+  Init () {
+    this.jsonObject.tilesets.forEach(tileset => {
+      // console.log('tileset ' + tileset.name)
+      this.tilesets[tileset.name] = new TileSet(this, tileset)
+      this.tilesets[tileset.name].Init()
+    })
 
     this.graphics = new PIXI.Graphics()
     this.graphics.lineStyle(2, 0x0000ff, 1)
@@ -39,6 +39,26 @@ export class TileMap extends PIXI.Container {
   }
 
   Update (delta) {}
+
+  FindTilesetForGID (gid) {
+    //   for (let k = Object.keys(this.tilesets).length; k > 0; k--) {
+    //     console.log(this.tilesets.keys[k])
+    //   }
+
+    let minDifference = 0xffff
+    let minKey
+    for (const [key, value] of Object.entries(this.tilesets)) {
+      let tempDiff = gid - value.firstGid
+      if (tempDiff > 0 && tempDiff < minDifference) {
+        minDifference = tempDiff
+        minKey = key
+      }
+      // key: the name of the object key
+      // index: the ordinal position of the key within the object
+    }
+
+    return this.tilesets[minKey]
+  }
 }
 
 /*
