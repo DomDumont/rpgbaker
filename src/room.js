@@ -22,9 +22,9 @@ export class Room extends PIXI.Container {
     })
   }
 
-  AddGAO (newObject) {
+  AddGAO (tilelayer, newObject) {
     this.gaos.push(newObject)
-    this.addChild(newObject)
+    tilelayer.addChild(newObject)
   }
 
   Destroy () {

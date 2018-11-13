@@ -2,9 +2,9 @@ const PIXI = require('pixi.js')
 /** This is a description of the TileLayer
  */
 export class TileLayer extends PIXI.Container {
-  constructor (parent, jsonObject, loadCallback) {
+  constructor (myParent, jsonObject, loadCallback) {
     super()
-    this.parent = parent
+    this.myParent = myParent
     this.jsonObject = jsonObject
     this.loadCallback = loadCallback
   }
@@ -12,7 +12,7 @@ export class TileLayer extends PIXI.Container {
     if (this.jsonObject.objects !== undefined) {
       console.log('this is an object layer')
       this.jsonObject.objects.forEach(tempObject => {
-        this.loadCallback(tempObject)
+        this.loadCallback(this, tempObject)
       })
     }
     // Load sprites
@@ -23,7 +23,7 @@ export class TileLayer extends PIXI.Container {
         }
 
         // Here find the right tileset
-        let chosenTileset = this.parent.FindTilesetForGID(tileIdx)
+        let chosenTileset = this.myParent.FindTilesetForGID(tileIdx)
         if (tileIdx === 1490) {
           console.log('coucou')
         }

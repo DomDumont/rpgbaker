@@ -2,9 +2,9 @@ import { Utils } from './utils'
 const PIXI = require('pixi.js')
 
 export class GameObject extends PIXI.Container {
-  constructor (parent, jsonObject) {
+  constructor (myParent, jsonObject) {
     super()
-    this.parent = parent
+    this.myParent = myParent
     this.jsonObject = jsonObject
 
     this.x = this.jsonObject.x
@@ -25,7 +25,7 @@ export class GameObject extends PIXI.Container {
   Update (delta) {}
 
   PlaceMeeting (x, y, classNameToCheck) {
-    let gaos = this.parent.gaos
+    let gaos = this.myParent.gaos
 
     let backupX = this.x
     let backupY = this.y

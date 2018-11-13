@@ -1,8 +1,8 @@
 const PIXI = require('pixi.js')
 
 export class TileSet {
-  constructor (parent, jsonObject) {
-    this.parent = parent
+  constructor (myParent, jsonObject) {
+    this.myParent = myParent
     this.jsonObject = jsonObject
   }
   Init () {

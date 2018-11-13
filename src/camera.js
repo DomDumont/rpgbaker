@@ -1,7 +1,7 @@
 /** Camera Class  */
 export class Camera {
-  constructor (parent) {
-    this.parent = parent
+  constructor (myParent) {
+    this.myParent = myParent
     this.gaoToFollow = undefined
     this.borderX = 200
     this.borderY = 100
@@ -12,17 +12,17 @@ export class Camera {
   }
 
   Update (delta) {
-    // console.log(this.parent.width)
-    // console.log(this.parent.app.renderer.height)
+    // console.log(this.myParent.width)
+    // console.log(this.myParent.app.renderer.height)
     if (this.gaoToFollow) {
-      this.parent.app.stage.position.x =
-        -this.gaoToFollow.x + this.parent.app.renderer.width / 2
+      this.myParent.app.stage.position.x =
+        -this.gaoToFollow.x + this.myParent.app.renderer.width / 2
 
-      this.parent.app.stage.position.y =
-        -this.gaoToFollow.y + this.parent.app.renderer.height / 2
+      this.myParent.app.stage.position.y =
+        -this.gaoToFollow.y + this.myParent.app.renderer.height / 2
     } else {
-      this.parent.app.stage.position.x = 0
-      this.parent.app.stage.position.y = 0
+      this.myParent.app.stage.position.x = 0
+      this.myParent.app.stage.position.y = 0
     }
   }
 }
