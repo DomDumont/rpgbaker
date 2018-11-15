@@ -59,7 +59,7 @@ export class GameObject extends PIXI.Container {
     let isThereSomethingUnder = false
     for (let i = 0; i < gaos.length; i++) {
       let element = gaos[i]
-      if (classNameToCheck.name === element.constructor.name) {
+      if (element instanceof classNameToCheck && element !== this) {
         if (Utils.HitTestRectangle(this, element) === true) {
           isThereSomethingUnder = true
         }
