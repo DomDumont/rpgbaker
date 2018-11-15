@@ -12,6 +12,8 @@ export class GameObject extends PIXI.Container {
     this.width = this.jsonObject.width
     this.height = this.jsonObject.height
 
+    this.alarms = {}
+
     // this.pivot.x = this.width / 2
     // this.pivot.y = this.height / 2
   }
@@ -22,7 +24,28 @@ export class GameObject extends PIXI.Container {
   Destroy () {}
 
   /** This is a description of the Update function. */
-  Update (delta) {}
+  Update (delta) {
+    // foreach alarms, if alarm = 0 call OnAlarm()
+    for (var propertyName in this.alarms) {
+      // propertyName is what you want
+      // you can get the value like this: myObject[propertyName]
+      if (this.alarms[propertyName] > 0) {
+        this.alarms[propertyName]--
+      } else {
+        delete this.alarms[propertyName]
+        this.OnAlarm(propertyName)
+      }
+    }
+  }
+
+  SetAlarm (alarmIndex, alarmNbTicks) {
+    console.log('generic SetAlarm ' + alarmIndex + ' ' + alarmNbTicks)
+    this.alarms[alarmIndex] = alarmNbTicks
+  }
+
+  OnAlarm (alarmIndex) {
+    console.log('generic OnAlarm ' + alarmIndex)
+  }
 
   PlaceMeeting (x, y, classNameToCheck) {
     let gaos = this.myParent.gaos

@@ -73,4 +73,16 @@ export class Utils {
   static GetTexturePart (texture, x, y, w, h) {
     return new PIXI.Texture(texture, new PIXI.Rectangle(x, y, w, h))
   }
+
+  static GetRandomFloat (min, max) {
+    return Math.random() * (max - min) + min
+  }
+
+  static GetRandomInt (min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+
+  static GetRandomBool () {
+    return Math.random() >= 0.5
+  }
 }

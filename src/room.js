@@ -20,6 +20,7 @@ export class Room extends PIXI.Container {
     this.gaos.forEach(element => {
       element.Update(delta)
     })
+    // console.log(this.game.app.ticker.FPS)
   }
 
   AddGAO (tilelayer, newObject) {
