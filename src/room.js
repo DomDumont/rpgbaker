@@ -30,10 +30,19 @@ export class Room extends PIXI.Container {
     }
   }
 
+  GetGAOByName (nameToGet) {
+    this.gaos.forEach(element => {
+      if (element.name === nameToGet) {
+        return element
+      }
+    })
+    return undefined
+  }
   TransferPersistentObjectsTo (newRoom) {
     this.gaos.forEach(element => {
       if (element.persistent === true) {
         console.log('Transfert ' + element.constructor.name)
+        element.myParent = newRoom
         newRoom.AddGAO(undefined, element)
       }
     })

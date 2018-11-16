@@ -2,8 +2,9 @@ import { Utils } from './utils'
 const PIXI = require('pixi.js')
 
 export class GameObject extends PIXI.Container {
-  constructor (myParent, jsonObject) {
+  constructor (name, myParent, jsonObject) {
     super()
+    this.name = name
     this.myParent = myParent
     this.jsonObject = jsonObject
 
@@ -26,8 +27,47 @@ export class GameObject extends PIXI.Container {
     // this.pivot.y = this.height / 2
   }
   /** This is a description of the Init function. */
-  Init () {}
+  Init () {
+    if (this.jsonObject) {
+      this.hitArea = new PIXI.Rectangle(
+        0,
+        0,
+        this.jsonObject.width,
+        this.jsonObject.height
+      )
+      this.graphicsHitArea = new PIXI.Graphics()
+      // graphics.beginFill(0xffff00)
+      this.graphicsHitArea.lineStyle(1, 0xffff00)
 
+      this.graphicsHitArea.drawRect(
+        this.hitArea.x,
+        this.hitArea.y,
+        this.hitArea.width,
+        this.hitArea.height
+      )
+
+      this.addChild(this.graphicsHitArea)
+      this.graphicsHitArea.alpha = 0
+    }
+  }
+
+  SetHitArea (newRectangle) {
+    this.removeChild(this.graphicsHitArea)
+    this.hitArea = newRectangle
+    this.graphicsHitArea = new PIXI.Graphics()
+    // graphics.beginFill(0xffff00)
+    this.graphicsHitArea.lineStyle(1, 0xffff00)
+
+    this.graphicsHitArea.drawRect(
+      this.hitArea.x,
+      this.hitArea.y,
+      this.hitArea.width,
+      this.hitArea.height
+    )
+
+    this.addChild(this.graphicsHitArea)
+    this.graphicsHitArea.alpha = 0
+  }
   /** This is a description of the Destroy function. */
   Destroy () {}
 
@@ -78,5 +118,16 @@ export class GameObject extends PIXI.Container {
     this.y = backupY
 
     return isThereSomethingUnder
+  }
+
+  With (classNameToCheck, callback) {
+    let gaos = this.myParent.gaos
+
+    for (let i = 0; i < gaos.length; i++) {
+      let element = gaos[i]
+      if (element instanceof classNameToCheck /* && element !== this */) {
+        callback(element)
+      }
+    }
   }
 }
