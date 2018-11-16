@@ -1,6 +1,6 @@
 const PIXI = require('pixi.js')
 /** This is a description of the Room
- *
+ * @tutorial tutorial-room
  */
 export class Room extends PIXI.Container {
   constructor () {
@@ -22,7 +22,11 @@ export class Room extends PIXI.Container {
     })
     // console.log(this.game.app.ticker.FPS)
   }
-
+  /**
+   * Add Game Object to the list of gameObjects for this room.
+   * @param {*} tilelayer parent layer , the object will be attached to this layer
+   * @param {*} newObject object to add
+   */
   AddGAO (tilelayer, newObject) {
     this.gaos.push(newObject)
     if (tilelayer) {
@@ -47,6 +51,9 @@ export class Room extends PIXI.Container {
       }
     })
   }
+  /**
+   * Called when the room is destroyed. Try to destroy all gaos
+   */
   Destroy () {
     this.gaos.forEach(element => {
       element.Destroy()

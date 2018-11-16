@@ -51,6 +51,10 @@ export class GameObject extends PIXI.Container {
     }
   }
 
+  /**
+   * Change the hit area to a new rectangle
+   * @param {*} newRectangle
+   */
   SetHitArea (newRectangle) {
     this.removeChild(this.graphicsHitArea)
     this.hitArea = newRectangle
