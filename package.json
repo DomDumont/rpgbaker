@@ -1,6 +1,6 @@
 {
   "name": "rpgbaker",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "minimalist and useless game engine (with rpg elements)",
   "main": "lib/index.js",
   "scripts": {
