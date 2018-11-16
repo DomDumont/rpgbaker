@@ -7,11 +7,19 @@ export class GameObject extends PIXI.Container {
     this.myParent = myParent
     this.jsonObject = jsonObject
 
-    this.x = this.jsonObject.x
-    this.y = this.jsonObject.y
-    this.width = this.jsonObject.width
-    this.height = this.jsonObject.height
+    if (this.jsonObject) {
+      this.x = this.jsonObject.x
+      this.y = this.jsonObject.y
+      this.width = this.jsonObject.width
+      this.height = this.jsonObject.height
+    } else {
+      this.x = 0
+      this.y = 0
+      this.width = 0
+      this.height = 0
+    }
 
+    this.persistent = false
     this.alarms = {}
 
     // this.pivot.x = this.width / 2
@@ -39,12 +47,12 @@ export class GameObject extends PIXI.Container {
   }
 
   SetAlarm (alarmIndex, alarmNbTicks) {
-    console.log('generic SetAlarm ' + alarmIndex + ' ' + alarmNbTicks)
+    // console.log('generic SetAlarm ' + alarmIndex + ' ' + alarmNbTicks)
     this.alarms[alarmIndex] = alarmNbTicks
   }
 
   OnAlarm (alarmIndex) {
-    console.log('generic OnAlarm ' + alarmIndex)
+    // console.log('generic OnAlarm ' + alarmIndex)
   }
 
   PlaceMeeting (x, y, classNameToCheck) {

@@ -25,9 +25,19 @@ export class Room extends PIXI.Container {
 
   AddGAO (tilelayer, newObject) {
     this.gaos.push(newObject)
-    tilelayer.addChild(newObject)
+    if (tilelayer) {
+      tilelayer.addChild(newObject)
+    }
   }
 
+  TransferPersistentObjectsTo (newRoom) {
+    this.gaos.forEach(element => {
+      if (element.persistent === true) {
+        console.log('Transfert ' + element.constructor.name)
+        newRoom.AddGAO(undefined, element)
+      }
+    })
+  }
   Destroy () {
     this.gaos.forEach(element => {
       element.Destroy()

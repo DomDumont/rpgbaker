@@ -10,7 +10,7 @@ export class TileLayer extends PIXI.Container {
   }
   Init () {
     if (this.jsonObject.objects !== undefined) {
-      console.log('this is an object layer')
+      // console.log('this is an object layer')
       this.jsonObject.objects.forEach(tempObject => {
         this.loadCallback(this, tempObject)
       })
@@ -24,9 +24,6 @@ export class TileLayer extends PIXI.Container {
 
         // Here find the right tileset
         let chosenTileset = this.myParent.FindTilesetForGID(tileIdx)
-        if (tileIdx === 1490) {
-          console.log('coucou')
-        }
         tileIdx = tileIdx - chosenTileset.firstGid
         let imgX =
           (tileIdx % (chosenTileset.imageWidth / chosenTileset.tileWidth)) *

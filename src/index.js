@@ -93,14 +93,18 @@ export class Game {
 
   CheckRoomTransition () {
     if (this.currentRoomKey !== this.nextRoomKey) {
-      let currentRoom = this.rooms.get(this.currentRoomKey)
-      if (currentRoom) currentRoom.Destroy()
+      let oldRoom = this.rooms.get(this.currentRoomKey)
+      let newRoom = this.rooms.get(this.nextRoomKey)
+      if (oldRoom) {
+        oldRoom.TransferPersistentObjectsTo(newRoom)
+        oldRoom.Destroy()
+      }
       this.currentRoomKey = this.nextRoomKey
-      this.rooms.get(this.currentRoomKey).Init()
+      newRoom.Init()
       for (let [, val] of this.rooms.entries()) {
         val.visible = false
       }
-      this.rooms.get(this.currentRoomKey).visible = true
+      newRoom.visible = true
     }
   }
   Update (delta) {

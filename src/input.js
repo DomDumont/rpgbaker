@@ -9,6 +9,7 @@ export class Input {
     this.vk_right = 39
     this.vk_down = 40
     this.vk_left_shift = 16
+    this.vk_d = 68
 
     this.keyStates = new Array(256)
     this.previousKeyStates = new Array(256)
@@ -41,14 +42,14 @@ export class Input {
 
   DownHandler (event) {
     var key = window.event ? event.keyCode : event.which
-    console.log('key = ' + key)
+    // console.log('key = ' + key)
     event.preventDefault()
     this.realStates[key] = true
   }
 
   UpHandler (event) {
     var key = window.event ? event.keyCode : event.which
-    console.log('key up = ' + key)
+    // console.log('key up = ' + key)
     event.preventDefault()
     this.realStates[key] = false
   }

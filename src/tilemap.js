@@ -30,10 +30,10 @@ export class TileMap extends PIXI.Container {
     // this.addChild(this.graphics)
 
     this.jsonObject.layers.forEach(layer => {
-      console.log('renderLayer ' + layer.name)
+      // console.log('renderLayer ' + layer.name)
       this.layers[layer.name] = new TileLayer(this, layer, this.loadCallback)
       this.layers[layer.name].Init()
-      console.log('addchild du tile ' + layer.name)
+      // console.log('addchild du tile ' + layer.name)
       this.addChild(this.layers[layer.name])
     })
   }
@@ -41,10 +41,6 @@ export class TileMap extends PIXI.Container {
   Update (delta) {}
 
   FindTilesetForGID (gid) {
-    //   for (let k = Object.keys(this.tilesets).length; k > 0; k--) {
-    //     console.log(this.tilesets.keys[k])
-    //   }
-
     let minDifference = 0xffff
     let minKey
     for (const [key, value] of Object.entries(this.tilesets)) {
