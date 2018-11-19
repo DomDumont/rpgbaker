@@ -1,5 +1,8 @@
 import { Utils } from './utils'
 const PIXI = require('pixi.js')
+/** This is a description of the GameObject
+
+ */
 
 export class GameObject extends PIXI.Container {
   constructor (name, myParent, jsonObject) {
@@ -99,6 +102,23 @@ export class GameObject extends PIXI.Container {
     // console.log('generic OnAlarm ' + alarmIndex)
   }
 
+  With (classNameToCheck, callback) {
+    let gaos = this.myParent.gaos
+
+    for (let i = 0; i < gaos.length; i++) {
+      let element = gaos[i]
+      if (element instanceof classNameToCheck /* && element !== this */) {
+        callback(element)
+      }
+    }
+  }
+
+  /**
+   * Returns true if there is an instance of classNameToCheck at position (x,y)
+   * @param {*} x x position to check
+   * @param {*} y y position to check
+   * @param {*} classNameToCheck className to check
+   */
   PlaceMeeting (x, y, classNameToCheck) {
     let gaos = this.myParent.gaos
 
@@ -124,14 +144,33 @@ export class GameObject extends PIXI.Container {
     return isThereSomethingUnder
   }
 
-  With (classNameToCheck, callback) {
+  /**
+   * Returns an object  if there is an instance of classNameToCheck at position (x,y) or null
+   * @param {*} x x position to check
+   * @param {*} y y position to check
+   * @param {*} classNameToCheck className to check
+   */
+  InstancePlace (x, y, classNameToCheck) {
     let gaos = this.myParent.gaos
+
+    let backupX = this.x
+    let backupY = this.y
+
+    this.x = x
+    this.y = y
 
     for (let i = 0; i < gaos.length; i++) {
       let element = gaos[i]
-      if (element instanceof classNameToCheck /* && element !== this */) {
-        callback(element)
+      if (element instanceof classNameToCheck && element !== this) {
+        if (Utils.HitTestRectangle(this, element) === true) {
+          return element
+        }
       }
     }
+
+    this.x = backupX
+    this.y = backupY
+
+    return null
   }
 }
