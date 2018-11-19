@@ -95,12 +95,14 @@ export class Game {
     if (this.currentRoomKey !== this.nextRoomKey) {
       let oldRoom = this.rooms.get(this.currentRoomKey)
       let newRoom = this.rooms.get(this.nextRoomKey)
+
       if (oldRoom) {
         oldRoom.TransferPersistentObjectsTo(newRoom)
         oldRoom.Destroy()
       }
       this.currentRoomKey = this.nextRoomKey
       newRoom.Init()
+
       for (let [, val] of this.rooms.entries()) {
         val.visible = false
       }

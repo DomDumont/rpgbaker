@@ -27,10 +27,11 @@ export class Room extends PIXI.Container {
    * @param {*} tilelayer parent layer , the object will be attached to this layer
    * @param {*} newObject object to add
    */
-  AddGAO (tilelayer, newObject) {
+  AddGAO (graphicParent, newObject) {
+    console.log('AddGAO ' + newObject.name)
     this.gaos.push(newObject)
-    if (tilelayer) {
-      tilelayer.addChild(newObject)
+    if (graphicParent) {
+      graphicParent.addChild(newObject)
     }
   }
 
@@ -47,7 +48,7 @@ export class Room extends PIXI.Container {
       if (element.persistent === true) {
         console.log('Transfert ' + element.constructor.name)
         element.myParent = newRoom
-        newRoom.AddGAO(undefined, element)
+        newRoom.AddGAO(newRoom, element)
       }
     })
   }
