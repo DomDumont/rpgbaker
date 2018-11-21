@@ -13,7 +13,7 @@ export class Room extends PIXI.Container {
   Init () {
     for (let i = 0; i < this.gaos.length; i++) {
       let element = this.gaos[i]
-      element.Init()
+      if (element.persistent === false) element.Init()
     }
   }
 
@@ -64,9 +64,12 @@ export class Room extends PIXI.Container {
     for (let i = 0; i < this.gaos.length; i++) {
       let element = this.gaos[i]
       console.log('Destroy element ' + element.name)
-      element.Destroy()
+      if (element.persistent === false) {
+        element.Destroy()
+        this.removeChild(element)
+      }
     }
-    this.removeChildren()
+
     console.log('removeChildren ')
     this.gaos = []
   }
