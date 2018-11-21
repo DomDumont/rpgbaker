@@ -52,6 +52,7 @@ export class Room extends PIXI.Container {
         console.log('Transfert ' + element.constructor.name)
         element.myParent = newRoom
         newRoom.AddGAO(element)
+        newRoom.addChild(element)
       }
     }
   }

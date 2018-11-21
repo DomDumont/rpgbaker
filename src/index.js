@@ -32,15 +32,18 @@ export class Game {
 
     this.groups.set('0', new PIXI.display.Group(0, false))
     this.groups.set('1', new PIXI.display.Group(1, false))
+    this.groups.set('2', new PIXI.display.Group(2, false))
 
     this.app.stage = new PIXI.display.Stage()
     this.app.stage.group.enableSort = true
 
     this.layers.set('0', new PIXI.display.Layer(this.groups.get('0')))
     this.layers.set('1', new PIXI.display.Layer(this.groups.get('1')))
+    this.layers.set('2', new PIXI.display.Layer(this.groups.get('2')))
 
     this.app.stage.addChild(this.layers.get('0'))
     this.app.stage.addChild(this.layers.get('1'))
+    this.app.stage.addChild(this.layers.get('2'))
 
     // Add the canvas that Pixi automatically created for you to the HTML document
     document.body.appendChild(this.app.view)
