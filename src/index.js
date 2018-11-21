@@ -76,10 +76,10 @@ export class Game {
    * @param {string} roomKey - The Room key name
    * @param {Room} roomToAdd - The room object itself
    */
-  AddRoom (roomKey, roomToAdd) {
+  AddRoom (roomToAdd) {
     this.app.stage.addChild(roomToAdd)
-    this.rooms.set(roomKey, roomToAdd)
-    this.rooms.get(roomKey).visible = false
+    this.rooms.set(roomToAdd.name, roomToAdd)
+    this.rooms.get(roomToAdd.name).visible = false
     roomToAdd.game = this
   }
 
@@ -101,6 +101,7 @@ export class Game {
         oldRoom.Destroy()
       }
       this.currentRoomKey = this.nextRoomKey
+
       newRoom.Init()
 
       for (let [, val] of this.rooms.entries()) {
