@@ -17,7 +17,7 @@ export class TileMap extends PIXI.Container {
   // TODO Change this
   Init () {
     this.jsonObject.tilesets.forEach(tileset => {
-      // console.log('tileset ' + tileset.name)
+      // debug('tileset ' + tileset.name)
       this.tilesets[tileset.name] = new TileSet(this, tileset)
       this.tilesets[tileset.name].Init()
     })
@@ -30,10 +30,10 @@ export class TileMap extends PIXI.Container {
     // this.addChild(this.graphics)
 
     this.jsonObject.layers.forEach(layer => {
-      // console.log('renderLayer ' + layer.name)
+      // debug('renderLayer ' + layer.name)
       this.layers[layer.name] = new TileLayer(this, layer, this.loadCallback)
       this.layers[layer.name].Init()
-      // console.log('addchild du tile ' + layer.name)
+      // debug('addchild du tile ' + layer.name)
       this.addChild(this.layers[layer.name])
     })
   }
@@ -56,36 +56,3 @@ export class TileMap extends PIXI.Container {
     return this.tilesets[minKey]
   }
 }
-
-/*
-function testTiled () {
-  console.log(testTiled)
-  console.dir(map01)
-  map01.layers.forEach(renderLayer)
-}
-
-function renderLayer (layer) {
-  console.log('renderLayer ' + layer.name)
-  layer.data.forEach(function (tileIndex, i) {
-    if (!tileIndex) {
-      return
-    }
-    let size = map01.tilewidth
-    let imageX
-
-    let imageY
-
-    let sourceX
-
-    let sourceY
-
-    let tile = map01.tilesets[0]
-    tileIndex--
-    imageX = (tileIndex % (tile.imagewidth / size)) * size
-    imageY = ~~(tileIndex / (tile.imagewidth / size)) * size
-    sourceX = (i % layer.width) * size
-    sourceY = ~~(i / layer.width) * size
-  })
-}
-
- */

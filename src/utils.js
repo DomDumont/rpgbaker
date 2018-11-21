@@ -25,7 +25,6 @@ export class Utils {
 
     if (r1.hitArea) {
       hitBox1 = r1.hitArea
-      // console.log('hitArea found')
     } else hitBox1 = r1.getLocalBounds()
 
     if (r2.hitArea) hitBox2 = r2.hitArea

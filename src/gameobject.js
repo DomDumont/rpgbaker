@@ -1,4 +1,5 @@
 import { Utils } from './utils'
+const debug = require('debug')('OhYes')
 const PIXI = require('pixi.js')
 /** This is a description of the GameObject
 
@@ -94,12 +95,12 @@ export class GameObject extends PIXI.Container {
   }
 
   SetAlarm (alarmIndex, alarmNbTicks) {
-    // console.log('generic SetAlarm ' + alarmIndex + ' ' + alarmNbTicks)
+    debug('generic SetAlarm ' + alarmIndex + ' ' + alarmNbTicks)
     this.alarms[alarmIndex] = alarmNbTicks
   }
 
   OnAlarm (alarmIndex) {
-    // console.log('generic OnAlarm ' + alarmIndex)
+    debug('generic OnAlarm ' + alarmIndex)
   }
 
   With (classNameToCheck, callback) {

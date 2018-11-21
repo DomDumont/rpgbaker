@@ -42,14 +42,14 @@ export class Input {
 
   DownHandler (event) {
     var key = window.event ? event.keyCode : event.which
-    // console.log('key = ' + key)
+    // debug('key = ' + key)
     event.preventDefault()
     this.realStates[key] = true
   }
 
   UpHandler (event) {
     var key = window.event ? event.keyCode : event.which
-    // console.log('key up = ' + key)
+    // debug('key up = ' + key)
     event.preventDefault()
     this.realStates[key] = false
   }

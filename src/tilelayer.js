@@ -10,7 +10,7 @@ export class TileLayer extends PIXI.Container {
   }
   Init () {
     if (this.jsonObject.objects !== undefined) {
-      // console.log('this is an object layer')
+      // debug('this is an object layer')
       this.jsonObject.objects.forEach(tempObject => {
         this.loadCallback(this, tempObject)
       })
@@ -49,8 +49,6 @@ export class TileLayer extends PIXI.Container {
         tempSprite.x = destX
         tempSprite.y = destY
         this.addChild(tempSprite)
-
-        // console.log(imgX + ' ' + imgY)
       })
     }
   }

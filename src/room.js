@@ -1,3 +1,4 @@
+const debug = require('debug')('OhYes')
 const PIXI = require('pixi.js')
 /** This is a description of the Room
  * @tutorial tutorial-room
@@ -30,7 +31,7 @@ export class Room extends PIXI.Container {
    * @param {*} newObject object to add
    */
   AddGAO (newObject) {
-    console.log('AddGAO ' + newObject.name)
+    debug('AddGAO ' + newObject.name)
     this.gaos.push(newObject)
   }
 
@@ -49,7 +50,7 @@ export class Room extends PIXI.Container {
     for (let i = 0; i < this.gaos.length; i++) {
       let element = this.gaos[i]
       if (element.persistent === true) {
-        console.log('Transfert ' + element.constructor.name)
+        debug('Transfert ' + element.constructor.name)
         element.myParent = newRoom
         newRoom.AddGAO(element)
         newRoom.addChild(element)
@@ -60,17 +61,17 @@ export class Room extends PIXI.Container {
    * Called when the room is destroyed. Try to destroy all gaos
    */
   Destroy () {
-    console.log('Method Destroy of ' + this.name)
+    debug('Method Destroy of ' + this.name)
     for (let i = 0; i < this.gaos.length; i++) {
       let element = this.gaos[i]
-      console.log('Destroy element ' + element.name)
+      debug('Destroy element ' + element.name)
       if (element.persistent === false) {
         element.Destroy()
         this.removeChild(element)
       }
     }
 
-    console.log('removeChildren ')
+    debug('removeChildren ')
     this.gaos = []
   }
 }

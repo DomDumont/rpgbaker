@@ -11,10 +11,16 @@ export * from './tilemap.js'
 export * from './tilelayer.js'
 export * from './utils.js'
 
+const debug = require('debug')('OhYes')
+
 /** Game Class  */
 export class Game {
   constructor (newWidth, newHeight) {
-    console.log('rpgbaker use pixi version ' + PIXI.VERSION)
+    debug(
+      '%c rpgbaker use pixi version ' + PIXI.VERSION,
+      'background: #222;color: #00ffff'
+    )
+    debug('%c test', 'color: #ff0000')
 
     this.rooms = new Map()
     this.layers = new Map()
@@ -65,7 +71,7 @@ export class Game {
 
   OnLoadedDone () {
     // Start the game loop
-    console.log('OnLoadedDone')
+    debug('OnLoadedDone')
     // for (let [key, val] of this.rooms.entries()) {
     //   console.debug(key)
     //   val.Init()
