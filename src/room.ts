@@ -9,12 +9,12 @@ const debug = Debug('OhYes')
 export class Room extends PIXI.Container {
   gaos: any
   game: any
-  name: any
+  name: string
 
   roomWidth: number = 0
   roomHeight: number = 0
 
-  constructor (name: any) {
+  constructor (name: string) {
     super()
     this.gaos = []
     this.game = undefined
@@ -45,7 +45,11 @@ export class Room extends PIXI.Container {
     this.gaos.push(newObject)
   }
 
-  GetGAOByName (nameToGet: any) {
+  /**
+   * Try to find a GAO by its name
+   * @param nameToGet
+   */
+  GetGAOByName (nameToGet: string) {
     for (let i = 0; i < this.gaos.length; i++) {
       let element = this.gaos[i]
       if (element.name === nameToGet) {

@@ -11,10 +11,10 @@ const debug = Debug('OhYes')
  */
 
 export class GameObject extends PIXI.Container {
-  name: any
+  name: string
   room: Room
   jsonObject: any
-  persistent: any
+  persistent: boolean
   alarms: any
   graphicsHitArea: any
   hitArea: any

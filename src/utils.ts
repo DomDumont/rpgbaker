@@ -14,42 +14,42 @@ export class Utils {
       return false
     }
   }
-  static HitTestRectangle (r1: any, r2: any) {
+  static HitTestRectangle (r1: PIXI.Container, r2: PIXI.Container) {
     // Define the variables we'll need to calculate
     let hit, combinedHalfWidths, combinedHalfHeights, vx, vy
 
     // hit will determine whether there's a collision
     hit = false
 
-    let hitBox1
-    let hitBox2
+    let hitBox1: PIXI.Rectangle
+    let hitBox2: PIXI.Rectangle
 
     if (r1.hitArea) {
-      hitBox1 = r1.hitArea
+      hitBox1 = r1.hitArea as PIXI.Rectangle
     } else hitBox1 = r1.getLocalBounds()
 
-    if (r2.hitArea) hitBox2 = r2.hitArea
+    if (r2.hitArea) hitBox2 = r2.hitArea as PIXI.Rectangle
     else hitBox2 = r2.getLocalBounds()
 
     // Find the center points of each sprite
-    r1.centerX = r1.x + hitBox1.x + hitBox1.width / 2
-    r1.centerY = r1.y + hitBox1.y + hitBox1.height / 2
-    r2.centerX = r2.x + hitBox2.x + hitBox2.width / 2
-    r2.centerY = r2.y + hitBox2.y + hitBox2.height / 2
+    let r1centerX = r1.x + hitBox1.x + hitBox1.width / 2
+    let r1centerY = r1.y + hitBox1.y + hitBox1.height / 2
+    let r2centerX = r2.x + hitBox2.x + hitBox2.width / 2
+    let r2centerY = r2.y + hitBox2.y + hitBox2.height / 2
 
     // Find the half-widths and half-heights of each sprite
-    r1.halfWidth = hitBox1.width / 2
-    r1.halfHeight = hitBox1.height / 2
-    r2.halfWidth = hitBox2.width / 2
-    r2.halfHeight = hitBox2.height / 2
+    let r1halfWidth = hitBox1.width / 2
+    let r1halfHeight = hitBox1.height / 2
+    let r2halfWidth = hitBox2.width / 2
+    let r2halfHeight = hitBox2.height / 2
 
     // Calculate the distance vector between the sprites
-    vx = r1.centerX - r2.centerX
-    vy = r1.centerY - r2.centerY
+    vx = r1centerX - r2centerX
+    vy = r1centerY - r2centerY
 
     // Figure out the combined half-widths and half-heights
-    combinedHalfWidths = r1.halfWidth + r2.halfWidth
-    combinedHalfHeights = r1.halfHeight + r2.halfHeight
+    combinedHalfWidths = r1halfWidth + r2halfWidth
+    combinedHalfHeights = r1halfHeight + r2halfHeight
 
     // Check for a collision on the x axis
     if (Math.abs(vx) < combinedHalfWidths) {
