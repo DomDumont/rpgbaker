@@ -1,10 +1,22 @@
-const PIXI = require('pixi.js')
+import * as PIXI from 'pixi.js'
+import { TileMap } from './tilemap'
 
 export class TileSet {
-  constructor (myParent, jsonObject) {
+  myParent: TileMap
+  jsonObject: any
+  name: any
+  firstGid: any
+  imageWidth: any
+  imageHeight: any
+  tileWidth: any
+  tileHeight: any
+  texture: any
+
+  constructor (myParent: any, jsonObject: any) {
     this.myParent = myParent
     this.jsonObject = jsonObject
   }
+
   Init () {
     this.name = this.jsonObject.name
     this.firstGid = this.jsonObject.firstgid

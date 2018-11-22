@@ -1,8 +1,14 @@
-const PIXI = require('pixi.js')
+import * as PIXI from 'pixi.js'
+import { TileMap } from './tilemap'
+
 /** This is a description of the TileLayer
  */
 export class TileLayer extends PIXI.Container {
-  constructor (myParent, jsonObject, loadCallback) {
+  myParent: TileMap
+  jsonObject: any
+  loadCallback: any
+
+  constructor (myParent: any, jsonObject: any, loadCallback: any) {
     super()
     this.myParent = myParent
     this.jsonObject = jsonObject
@@ -11,13 +17,13 @@ export class TileLayer extends PIXI.Container {
   Init () {
     if (this.jsonObject.objects !== undefined) {
       // debug('this is an object layer')
-      this.jsonObject.objects.forEach(tempObject => {
+      this.jsonObject.objects.forEach((tempObject: any) => {
         this.loadCallback(this, tempObject)
       })
     }
     // Load sprites
     if (this.jsonObject.data !== undefined) {
-      this.jsonObject.data.forEach((tileIdx, i) => {
+      this.jsonObject.data.forEach((tileIdx: any, i: any) => {
         if (!tileIdx) {
           return
         }

@@ -1,7 +1,8 @@
-const PIXI = require('pixi.js')
+import * as PIXI from 'pixi.js'
+// const PIXI = require('pixi.js')
 
 export class Utils {
-  static PointInRectangle (x, y, r1) {
+  static PointInRectangle (x: any, y: any, r1: any) {
     if (
       x >= r1.x &&
       x <= r1.x + r1.width &&
@@ -13,7 +14,7 @@ export class Utils {
       return false
     }
   }
-  static HitTestRectangle (r1, r2) {
+  static HitTestRectangle (r1: any, r2: any) {
     // Define the variables we'll need to calculate
     let hit, combinedHalfWidths, combinedHalfHeights, vx, vy
 
@@ -69,15 +70,15 @@ export class Utils {
     return hit
   }
 
-  static GetTexturePart (texture, x, y, w, h) {
+  static GetTexturePart (texture: any, x: any, y: any, w: any, h: any) {
     return new PIXI.Texture(texture, new PIXI.Rectangle(x, y, w, h))
   }
 
-  static GetRandomFloat (min, max) {
+  static GetRandomFloat (min: any, max: any) {
     return Math.random() * (max - min) + min
   }
 
-  static GetRandomInt (min, max) {
+  static GetRandomInt (min: any, max: any) {
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
 

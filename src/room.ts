@@ -1,10 +1,20 @@
-const debug = require('debug')('OhYes')
-const PIXI = require('pixi.js')
+import * as PIXI from 'pixi.js'
+import Debug from 'debug'
+import { GameObject } from './gameobject'
+const debug = Debug('OhYes')
+
 /** This is a description of the Room
  * @tutorial tutorial-room
  */
 export class Room extends PIXI.Container {
-  constructor (name) {
+  gaos: any
+  game: any
+  name: any
+
+  roomWidth: number = 0
+  roomHeight: number = 0
+
+  constructor (name: any) {
     super()
     this.gaos = []
     this.game = undefined
@@ -19,7 +29,7 @@ export class Room extends PIXI.Container {
   }
 
   /** This is a description of the Update function. */
-  Update (delta) {
+  Update (delta: any) {
     for (let i = 0; i < this.gaos.length; i++) {
       let element = this.gaos[i]
       element.Update(delta)
@@ -30,12 +40,12 @@ export class Room extends PIXI.Container {
    * @param {*} tilelayer parent layer , the object will be attached to this layer
    * @param {*} newObject object to add
    */
-  AddGAO (newObject) {
+  AddGAO (newObject: any) {
     debug('AddGAO ' + newObject.name)
     this.gaos.push(newObject)
   }
 
-  GetGAOByName (nameToGet) {
+  GetGAOByName (nameToGet: any) {
     for (let i = 0; i < this.gaos.length; i++) {
       let element = this.gaos[i]
       if (element.name === nameToGet) {
@@ -46,12 +56,12 @@ export class Room extends PIXI.Container {
     return undefined
   }
 
-  TransferPersistentObjectsTo (newRoom) {
+  TransferPersistentObjectsTo (newRoom: Room) {
     for (let i = 0; i < this.gaos.length; i++) {
-      let element = this.gaos[i]
+      let element: GameObject = this.gaos[i] as GameObject
       if (element.persistent === true) {
         debug('Transfert ' + element.constructor.name)
-        element.myParent = newRoom
+        element.room = newRoom
         newRoom.AddGAO(element)
         newRoom.addChild(element)
       }

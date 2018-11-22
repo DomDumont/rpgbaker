@@ -1,21 +1,33 @@
 import { Camera } from './camera'
 import { Input } from './input'
 
-const PIXI = require('pixi.js')
-require('./pixi-layers')
+import * as PIXI from 'pixi.js'
+// const PIXI = require('pixi.js')
+// require('./pixi-layers')
+import 'pixi-layers'
+
+import Debug from 'debug'
 
 export * from './input.js'
 export * from './room.js'
 export * from './gameobject.js'
 export * from './tilemap.js'
 export * from './tilelayer.js'
-export * from './utils.js'
-
-const debug = require('debug')('OhYes')
+export * from './utils'
+const debug = Debug('OhYes')
 
 /** Game Class  */
 export class Game {
-  constructor (newWidth, newHeight) {
+  currentRoomKey: any
+  rooms: any
+  camera: any
+  input: any
+  groups: any
+  app: any
+  nextRoomKey: any
+  layers: any
+
+  constructor (newWidth: any, newHeight: any) {
     debug(
       '%c rpgbaker use pixi version ' + PIXI.VERSION,
       'background: #222;color: #00ffff'
@@ -77,7 +89,7 @@ export class Game {
     //   val.Init()
     // }
 
-    this.app.ticker.add(delta => this.Update(delta))
+    this.app.ticker.add((delta: any) => this.Update(delta))
   }
 
   /**
@@ -85,7 +97,7 @@ export class Game {
    * @param {string} roomKey - The Room key name
    * @param {Room} roomToAdd - The room object itself
    */
-  AddRoom (roomToAdd) {
+  AddRoom (roomToAdd: any) {
     this.app.stage.addChild(roomToAdd)
     this.rooms.set(roomToAdd.name, roomToAdd)
     this.rooms.get(roomToAdd.name).visible = false
@@ -96,7 +108,7 @@ export class Game {
    * Goto to a specific room
    * @param {string} roomKey - The Room name
    */
-  RoomGoto (roomKey) {
+  RoomGoto (roomKey: any) {
     this.nextRoomKey = roomKey
   }
 
@@ -119,7 +131,7 @@ export class Game {
       newRoom.visible = true
     }
   }
-  Update (delta) {
+  Update (delta: any) {
     // message.setText(Math.round(app.ticker.FPS))
     this.input.Update()
     this.camera.Update(delta)

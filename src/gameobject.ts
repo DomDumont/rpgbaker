@@ -1,15 +1,28 @@
 import { Utils } from './utils'
-const debug = require('debug')('OhYes')
-const PIXI = require('pixi.js')
+
+import * as PIXI from 'pixi.js'
+import Debug from 'debug'
+import { Room } from './room'
+const debug = Debug('OhYes')
+
+// const debug = require('debug')('OhYes')
 /** This is a description of the GameObject
 
  */
 
 export class GameObject extends PIXI.Container {
-  constructor (name, myParent, jsonObject) {
+  name: any
+  room: Room
+  jsonObject: any
+  persistent: any
+  alarms: any
+  graphicsHitArea: any
+  hitArea: any
+
+  constructor (name: any, myParent: any, jsonObject: any) {
     super()
     this.name = name
-    this.myParent = myParent
+    this.room = myParent
     this.jsonObject = jsonObject
 
     if (this.jsonObject) {
@@ -59,7 +72,7 @@ export class GameObject extends PIXI.Container {
    * Change the hit area to a new rectangle
    * @param {*} newRectangle
    */
-  SetHitArea (newRectangle) {
+  SetHitArea (newRectangle: any) {
     this.removeChild(this.graphicsHitArea)
     this.hitArea = newRectangle
     this.graphicsHitArea = new PIXI.Graphics()
@@ -80,7 +93,7 @@ export class GameObject extends PIXI.Container {
   Destroy () {}
 
   /** This is a description of the Update function. */
-  Update (delta) {
+  Update (delta: any) {
     // foreach alarms, if alarm = 0 call OnAlarm()
     for (var propertyName in this.alarms) {
       // propertyName is what you want
@@ -94,17 +107,17 @@ export class GameObject extends PIXI.Container {
     }
   }
 
-  SetAlarm (alarmIndex, alarmNbTicks) {
+  SetAlarm (alarmIndex: any, alarmNbTicks: any) {
     debug('generic SetAlarm ' + alarmIndex + ' ' + alarmNbTicks)
     this.alarms[alarmIndex] = alarmNbTicks
   }
 
-  OnAlarm (alarmIndex) {
+  OnAlarm (alarmIndex: any) {
     debug('generic OnAlarm ' + alarmIndex)
   }
 
-  With (classNameToCheck, callback) {
-    let gaos = this.myParent.gaos
+  With (classNameToCheck: any, callback: any) {
+    let gaos = this.room.gaos
 
     for (let i = 0; i < gaos.length; i++) {
       let element = gaos[i]
@@ -120,8 +133,8 @@ export class GameObject extends PIXI.Container {
    * @param {*} y y position to check
    * @param {*} classNameToCheck className to check
    */
-  PlaceMeeting (x, y, classNameToCheck) {
-    let gaos = this.myParent.gaos
+  PlaceMeeting (x: any, y: any, classNameToCheck: any) {
+    let gaos = this.room.gaos
 
     let backupX = this.x
     let backupY = this.y
@@ -151,8 +164,8 @@ export class GameObject extends PIXI.Container {
    * @param {*} y y position to check
    * @param {*} classNameToCheck className to check
    */
-  InstancePlace (x, y, classNameToCheck) {
-    let gaos = this.myParent.gaos
+  InstancePlace (x: any, y: any, classNameToCheck: any) {
+    let gaos = this.room.gaos
 
     let backupX = this.x
     let backupY = this.y
@@ -173,5 +186,33 @@ export class GameObject extends PIXI.Container {
     this.y = backupY
 
     return null
+  }
+
+  SetPosition (x: number, y: number) {
+    debug('SetPosition to ' + x + ' ' + y)
+    this.x = x
+    this.y = y
+  }
+
+  OffsetPosition (x: number, y: number) {
+    // debug('OffsetPosition by ' + x + ' ' + y)
+
+    let hitBox1
+
+    if (this.hitArea) {
+      hitBox1 = this.hitArea
+    } else hitBox1 = this.getLocalBounds()
+
+    this.x += x
+    if (this.x + hitBox1.x < 0) this.x = -hitBox1.x
+    if (this.x + hitBox1.x + hitBox1.width > this.room.roomWidth) {
+      this.x = this.room.roomWidth - (hitBox1.x + hitBox1.width)
+    }
+
+    this.y += y
+    if (this.y + hitBox1.y < 0) this.y = -hitBox1.y
+    if (this.y + hitBox1.y + hitBox1.height > this.room.roomHeight) {
+      this.y = this.room.roomHeight - (hitBox1.y + hitBox1.height)
+    }
   }
 }

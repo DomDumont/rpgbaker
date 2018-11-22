@@ -1,17 +1,22 @@
 /** Camera Class  */
 export class Camera {
-  constructor (myParent) {
+  myParent: any
+  gaoToFollow: any
+  borderX: any
+  borderY: any
+
+  constructor (myParent: any) {
     this.myParent = myParent
     this.gaoToFollow = undefined
     this.borderX = 200
     this.borderY = 100
   }
-  Follow (gameObject) {
+  Follow (gameObject: any) {
     this.gaoToFollow = gameObject
     this.Update(0) // To avoid glitches, bad
   }
 
-  Update (delta) {
+  Update (delta: any) {
     if (this.gaoToFollow) {
       this.myParent.app.stage.position.x =
         -this.gaoToFollow.x + this.myParent.app.renderer.width / 2

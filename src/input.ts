@@ -1,6 +1,17 @@
 /** Input Class  */
 
 export class Input {
+  vk_escape: any
+  vk_left: any
+  vk_up: any
+  vk_right: any
+  vk_down: any
+  vk_left_shift: any
+  vk_d: any
+  keyStates: any
+  previousKeyStates: any
+  realStates: any
+
   constructor () {
     // TODO Should probably be elsewhere
     this.vk_escape = 27
@@ -24,30 +35,30 @@ export class Input {
     window.addEventListener('keydown', this.DownHandler.bind(this), false)
     window.addEventListener('keyup', this.UpHandler.bind(this), false)
   }
-  Update (delta) {
+  Update (delta: any) {
     this.previousKeyStates = this.keyStates.slice(0)
     this.keyStates = this.realStates.slice(0)
   }
 
-  IsKeyDown (keyCode) {
+  IsKeyDown (keyCode: any) {
     return this.keyStates[keyCode]
   }
 
-  IsKeyPressed (keyCode) {
+  IsKeyPressed (keyCode: any) {
     let result =
       this.keyStates[keyCode] === true &&
       this.previousKeyStates[keyCode] === false
     return result
   }
 
-  DownHandler (event) {
+  DownHandler (event: any) {
     var key = window.event ? event.keyCode : event.which
     // debug('key = ' + key)
     event.preventDefault()
     this.realStates[key] = true
   }
 
-  UpHandler (event) {
+  UpHandler (event: any) {
     var key = window.event ? event.keyCode : event.which
     // debug('key up = ' + key)
     event.preventDefault()
