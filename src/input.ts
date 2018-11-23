@@ -1,3 +1,6 @@
+import Debug from 'debug'
+const debug = Debug('OhYes')
+
 /** Input Class  */
 
 export class Input {
@@ -8,6 +11,7 @@ export class Input {
   vk_down: any
   vk_left_shift: any
   vk_d: any
+  vk_p: any
   keyStates: any
   previousKeyStates: any
   realStates: any
@@ -21,6 +25,7 @@ export class Input {
     this.vk_down = 40
     this.vk_left_shift = 16
     this.vk_d = 68
+    this.vk_p = 80
 
     this.keyStates = new Array(256)
     this.previousKeyStates = new Array(256)
@@ -53,7 +58,7 @@ export class Input {
 
   DownHandler (event: any) {
     var key = window.event ? event.keyCode : event.which
-    // debug('key = ' + key)
+    debug('key = ' + key)
     event.preventDefault()
     this.realStates[key] = true
   }
