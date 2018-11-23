@@ -1,6 +1,6 @@
 ## Create your room by subclassing a Room
 
-``` javascript
+```
 import { Room } from 'rpgbaker'
 
 export default class RoomMenu extends Room {
@@ -17,7 +17,7 @@ super.Update(delta)
 
 ## Add your new Room to your Game
 
-``` javascript
+```
 import { Game } from 'rpgbaker'
 import RoomMenu from './rooms/room_menu'
 

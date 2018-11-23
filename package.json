@@ -8,7 +8,8 @@
     "watch": "tsc -w",
     "oldbuild": "babel src --out-dir lib",
     "oldwatch": "babel src --out-dir lib --watch",
-    "docs": "jsdoc  src -r src/README.md -u ./tutorials  -d docs"
+    "olddocs": "jsdoc  src -r src/README.md -u ./tutorials  -d docs",
+    "docs": "compodoc --includes ./tutorials -p ./tsconfig.json -d ./docs "
   },
   "babel": {
     "presets": [
