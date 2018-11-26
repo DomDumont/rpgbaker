@@ -215,4 +215,8 @@ export class GameObject extends PIXI.Container {
       this.y = this.room.roomHeight - (hitBox1.y + hitBox1.height)
     }
   }
+
+  OnRoomStart () {
+    debug('OnRoomStart')
+  }
 }

@@ -7,6 +7,7 @@ import * as PIXI from 'pixi.js'
 import 'pixi-layers'
 
 import Debug from 'debug'
+import { Room } from './room'
 
 export * from './input.js'
 export * from './room.js'
@@ -164,5 +165,19 @@ export class Game {
 
   GetCurrentRoom () {
     return this.rooms.get(this.currentRoomKey)
+  }
+
+  GetCurrentRoomWidth () {
+    let currentRoom: Room = this.GetCurrentRoom()
+    if (currentRoom) {
+      return currentRoom.roomWidth
+    } else return 0
+  }
+
+  GetCurrentRoomHeight () {
+    let currentRoom: Room = this.GetCurrentRoom()
+    if (currentRoom) {
+      return currentRoom.roomHeight
+    } else return 0
   }
 }

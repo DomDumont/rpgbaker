@@ -24,7 +24,10 @@ export class Room extends PIXI.Container {
   Init () {
     for (let i = 0; i < this.gaos.length; i++) {
       let element = this.gaos[i]
-      if (element.persistent === false) element.Init()
+      if (element.persistent === false) {
+        element.Init()
+      }
+      element.OnRoomStart()
     }
   }
 
