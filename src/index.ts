@@ -26,6 +26,7 @@ export class Game {
   app: any
   nextRoomKey: any
   layers: any
+  mousePosition: PIXI.Point
 
   constructor (newWidth: any, newHeight: any) {
     debug(
@@ -44,6 +45,23 @@ export class Game {
       antialias: false, // default: false
       transparent: false, // default: false
       resolution: 1 // default: 1
+    })
+
+    this.mousePosition = new PIXI.Point()
+
+    this.app.view.addEventListener('mousewheel', (ev: any) => {
+      this.mousePosition.set(ev.clientX, ev.clientY) // get global position
+
+      // returns element directly under mouse
+      const found = this.app.renderer.plugins.interaction.hitTest(
+        this.mousePosition,
+        this.app.stage
+      )
+
+      // Dispatch scroll event
+      if (found) {
+        found.emit('scroll', ev)
+      }
     })
 
     PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST
