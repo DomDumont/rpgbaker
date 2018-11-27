@@ -414,7 +414,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/room.ts:43</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/room.ts:46</a></div>
                             </td>
                         </tr>
 
@@ -490,7 +490,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/room.ts:77</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/room.ts:80</a></div>
                             </td>
                         </tr>
 
@@ -530,7 +530,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/room.ts:52</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/room.ts:55</a></div>
                             </td>
                         </tr>
 
@@ -641,7 +641,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/room.ts:63</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/room.ts:66</a></div>
                             </td>
                         </tr>
 
@@ -710,7 +710,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/room.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/room.ts:35</a></div>
                             </td>
                         </tr>
 
@@ -819,7 +819,10 @@ export class Room extends PIXI.Container {
   Init () {
     for (let i &#x3D; 0; i &lt; this.gaos.length; i++) {
       let element &#x3D; this.gaos[i]
-      if (element.persistent &#x3D;&#x3D;&#x3D; false) element.Init()
+      if (element.persistent &#x3D;&#x3D;&#x3D; false) {
+        element.Init()
+      }
+      element.OnRoomStart()
     }
   }
 
