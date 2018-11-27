@@ -58,4 +58,9 @@ export class TileLayer extends PIXI.Container {
       })
     }
   }
+
+  GetData (x: number, y: number): any {
+    let tempNumber = y * this.jsonObject.width + x
+    return this.jsonObject.data[tempNumber]
+  }
 }
