@@ -53,7 +53,7 @@ export class GameObject extends PIXI.Container {
         this.jsonObject.height
       )
       this.graphicsHitArea = new PIXI.Graphics()
-      // graphics.beginFill(0xffff00)
+      this.graphicsHitArea.beginFill(0xffff00)
       this.graphicsHitArea.lineStyle(1, 0xffff00)
 
       this.graphicsHitArea.drawRect(
@@ -76,7 +76,7 @@ export class GameObject extends PIXI.Container {
     this.removeChild(this.graphicsHitArea)
     this.hitArea = newRectangle
     this.graphicsHitArea = new PIXI.Graphics()
-    // graphics.beginFill(0xffff00)
+    this.graphicsHitArea.beginFill(0xffff00)
     this.graphicsHitArea.lineStyle(1, 0xffff00)
 
     this.graphicsHitArea.drawRect(
