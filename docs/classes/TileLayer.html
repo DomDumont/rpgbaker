@@ -334,13 +334,15 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/tilelayer.ts:62</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/tilelayer.ts:66</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Returns tile data for specified coordinates</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -350,6 +352,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -364,6 +367,10 @@
                                                     </td>
                                                     
 
+                                                        <td>
+                                                                <code><p>x coordinate</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>y</td>
@@ -376,6 +383,10 @@
                                                     </td>
                                                     
 
+                                                        <td>
+                                                                <code><p>y coordinate</p>
+</code>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -502,7 +513,11 @@ export class TileLayer extends PIXI.Container {
       })
     }
   }
-
+/**
+ *  Returns tile data for specified coordinates
+ * @param x x coordinate
+ * @param y y coordinate
+ */
   GetData (x: number, y: number): any {
     let tempNumber &#x3D; y * this.jsonObject.width + x
     return this.jsonObject.data[tempNumber]

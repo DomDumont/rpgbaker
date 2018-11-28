@@ -58,7 +58,11 @@ export class TileLayer extends PIXI.Container {
       })
     }
   }
-
+/**
+ *  Returns tile data for specified coordinates
+ * @param x x coordinate
+ * @param y y coordinate
+ */
   GetData (x: number, y: number): any {
     let tempNumber = y * this.jsonObject.width + x
     return this.jsonObject.data[tempNumber]
