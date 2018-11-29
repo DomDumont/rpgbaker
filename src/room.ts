@@ -86,6 +86,7 @@ export class Room extends PIXI.Container {
         element.Destroy()
         this.removeChild(element)
       }
+      element.OnRoomEnd()
     }
 
     debug('removeChildren ')

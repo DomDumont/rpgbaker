@@ -219,4 +219,8 @@ export class GameObject extends PIXI.Container {
   OnRoomStart () {
     debug('OnRoomStart')
   }
+
+  OnRoomEnd () {
+    debug('OnRoomEnd')
+  }
 }
