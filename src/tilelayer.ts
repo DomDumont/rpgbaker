@@ -7,6 +7,7 @@ export class TileLayer extends PIXI.Container {
   myParent: TileMap
   jsonObject: any
   loadCallback: any
+  isObjectLayer: boolean
 
   constructor (myParent: any, jsonObject: any, loadCallback: any) {
     super()
@@ -15,8 +16,10 @@ export class TileLayer extends PIXI.Container {
     this.loadCallback = loadCallback
   }
   Init () {
+    this.isObjectLayer = false
     if (this.jsonObject.objects !== undefined) {
       // debug('this is an object layer')
+      this.isObjectLayer = true
       this.jsonObject.objects.forEach((tempObject: any) => {
         this.loadCallback(this, tempObject)
       })
@@ -58,13 +61,19 @@ export class TileLayer extends PIXI.Container {
       })
     }
   }
-/**
- *  Returns tile data for specified coordinates
- * @param x x coordinate
- * @param y y coordinate
- */
+  /**
+   *  Returns tile data for specified coordinates
+   * @param x x coordinate
+   * @param y y coordinate
+   */
   GetData (x: number, y: number): any {
     let tempNumber = y * this.jsonObject.width + x
     return this.jsonObject.data[tempNumber]
+  }
+
+  Update (delta: any) {
+    if (this.isObjectLayer) {
+      this.children.sort((itemA, itemB) => itemA.y - itemB.y)
+    }
   }
 }

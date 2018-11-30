@@ -108,12 +108,12 @@ export class GameObject extends PIXI.Container {
   }
 
   SetAlarm (alarmIndex: any, alarmNbTicks: any) {
-    debug('generic SetAlarm ' + alarmIndex + ' ' + alarmNbTicks)
+    // debug('generic SetAlarm ' + alarmIndex + ' ' + alarmNbTicks)
     this.alarms[alarmIndex] = alarmNbTicks
   }
 
   OnAlarm (alarmIndex: any) {
-    debug('generic OnAlarm ' + alarmIndex)
+    // debug('generic OnAlarm ' + alarmIndex)
   }
 
   With (classNameToCheck: any, callback: any) {

@@ -43,7 +43,12 @@ export class TileMap extends PIXI.Container {
     })
   }
 
-  Update (delta: any) {}
+  Update (delta: any) {
+    for (const [key, value] of Object.entries(this.layers)) {
+      let tempLayer: TileLayer = value as TileLayer
+      tempLayer.Update(delta)
+    }
+  }
 
   FindTilesetForGID (gid: any) {
     let minDifference = 0xffff

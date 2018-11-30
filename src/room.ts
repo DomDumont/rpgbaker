@@ -70,7 +70,11 @@ export class Room extends PIXI.Container {
         debug('Transfert ' + element.constructor.name)
         element.room = newRoom
         newRoom.AddGAO(element)
-        newRoom.addChild(element)
+        if (element.parent !== this.game.UI) {
+          newRoom.addChild(element)
+        } else {
+          this.game.UI.addChild(element)
+        }
       }
     }
   }
