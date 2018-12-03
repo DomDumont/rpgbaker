@@ -143,6 +143,9 @@ export class Game {
         val.Update(delta)
       }
     }
+
+    this.UI.x = -this.app.stage.x
+    this.UI.y = -this.app.stage.y
   }
 
   GetCurrentRoom () {
