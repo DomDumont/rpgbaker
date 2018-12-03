@@ -399,7 +399,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/tilemap.ts:48</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/tilemap.ts:53</a></div>
                             </td>
                         </tr>
 
@@ -609,7 +609,12 @@ export class TileMap extends PIXI.Container {
     })
   }
 
-  Update (delta: any) {}
+  Update (delta: any) {
+    for (const [key, value] of Object.entries(this.layers)) {
+      let tempLayer: TileLayer &#x3D; value as TileLayer
+      tempLayer.Update(delta)
+    }
+  }
 
   FindTilesetForGID (gid: any) {
     let minDifference &#x3D; 0xffff

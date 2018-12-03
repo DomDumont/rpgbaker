@@ -50,6 +50,9 @@
             <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
         </li>
         <li >
+            <a href="#readme" role="tab" id="readme-tab" data-toggle="tab" data-link="readme">README</a>
+        </li>
+        <li >
             <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
         </li>
 </ul>
@@ -133,6 +136,9 @@
                             </li>
                             <li>
                                 <a href="#OnAlarm">OnAlarm</a>
+                            </li>
+                            <li>
+                                <a href="#OnRoomEnd">OnRoomEnd</a>
                             </li>
                             <li>
                                 <a href="#OnRoomStart">OnRoomStart</a>
@@ -832,6 +838,44 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="OnRoomEnd"></a>
+                        <span class="name">
+                            <b>
+                            OnRoomEnd
+                            </b>
+                            <a href="#OnRoomEnd"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>OnRoomEnd()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="223" class="link-to-prism">src/gameobject.ts:223</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="OnRoomStart"></a>
                         <span class="name">
                             <b>
@@ -1368,6 +1412,17 @@
 
     </div>
 
+    <div class="tab-pane fade " id="c-readme">
+        <p><p>It is very easy to create a new object.</p>
+<p>But, unfortunately, an empty object is often useless</p>
+<p>The hard part will be in the object itself.</p>
+<p>At least, this sample code gives you the impression that
+making a game object is easy.</p>
+<p>So let&#39;s enjoy this moment of simplicity</p>
+<div><pre class="line-numbers"><code class="language-javascript">import { GameObject } from &quot;rpgbaker&quot;;
+
+export default class MyNewObject extends GameObject {}</code></pre></div></p>
+    </div>
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Utils } from &#x27;./utils&#x27;
@@ -1480,12 +1535,12 @@ export class GameObject extends PIXI.Container {
   }
 
   SetAlarm (alarmIndex: any, alarmNbTicks: any) {
-    debug(&#x27;generic SetAlarm &#x27; + alarmIndex + &#x27; &#x27; + alarmNbTicks)
+    // debug(&#x27;generic SetAlarm &#x27; + alarmIndex + &#x27; &#x27; + alarmNbTicks)
     this.alarms[alarmIndex] &#x3D; alarmNbTicks
   }
 
   OnAlarm (alarmIndex: any) {
-    debug(&#x27;generic OnAlarm &#x27; + alarmIndex)
+    // debug(&#x27;generic OnAlarm &#x27; + alarmIndex)
   }
 
   With (classNameToCheck: any, callback: any) {
@@ -1590,6 +1645,10 @@ export class GameObject extends PIXI.Container {
 
   OnRoomStart () {
     debug(&#x27;OnRoomStart&#x27;)
+  }
+
+  OnRoomEnd () {
+    debug(&#x27;OnRoomEnd&#x27;)
   }
 }
 </code></pre>

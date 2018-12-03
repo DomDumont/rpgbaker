@@ -1,16 +1,16 @@
 [
-    {
-        "title": "A TITLE",
-        "file": "tutorial-room.md"
-    },
-    {
-        "title": "A TITLE",
-        "file": "tutorial-room.md",
-        "children": [
-            {
-                "title": "A TITLE",
-                "file": "sub-test/tutorial-room.md"
-            }
-        ]
-    }
+  {
+    "title": "Rooms",
+    "file": "tutorial-room.md"
+  },
+  {
+    "title": "Rooms",
+    "file": "tutorial-room.md",
+    "children": [
+      {
+        "title": "Rooms",
+        "file": "sub-test/tutorial-room.md"
+      }
+    ]
+  }
 ]

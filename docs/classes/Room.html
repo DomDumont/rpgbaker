@@ -490,7 +490,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/room.ts:80</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/room.ts:84</a></div>
                             </td>
                         </tr>
 
@@ -865,7 +865,11 @@ export class Room extends PIXI.Container {
         debug(&#x27;Transfert &#x27; + element.constructor.name)
         element.room &#x3D; newRoom
         newRoom.AddGAO(element)
-        newRoom.addChild(element)
+        if (element.parent !&#x3D;&#x3D; this.game.UI) {
+          newRoom.addChild(element)
+        } else {
+          this.game.UI.addChild(element)
+        }
       }
     }
   }
@@ -881,6 +885,7 @@ export class Room extends PIXI.Container {
         element.Destroy()
         this.removeChild(element)
       }
+      element.OnRoomEnd()
     }
 
     debug(&#x27;removeChildren &#x27;)
