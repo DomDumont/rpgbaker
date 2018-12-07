@@ -127,6 +127,36 @@ export class GameObject extends PIXI.Container {
     }
   }
 
+  CollisionRectangle (
+    x1: number,
+    y1: number,
+    x2: number,
+    y2: number,
+    classNameToCheck: any
+  ) {
+    let gaos = this.room.gaos
+
+    let testRectangle: PIXI.Rectangle
+
+    testRectangle = new PIXI.Rectangle(
+      x1,
+      y1,
+      Math.abs(x2 - x1),
+      Math.abs(y2 - y1)
+    )
+
+    let isThereSomethingUnder = false
+    for (let i = 0; i < gaos.length; i++) {
+      let element = gaos[i]
+      if (element instanceof classNameToCheck && element !== this) {
+        if (Utils.HitTestHardCodedRectangle(testRectangle, element) === true) {
+          isThereSomethingUnder = true
+        }
+      }
+    }
+
+    return isThereSomethingUnder
+  }
   /**
    * Returns true if there is an instance of classNameToCheck at position (x,y)
    * @param {*} x x position to check
