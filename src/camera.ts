@@ -1,5 +1,5 @@
 import { GameObject } from './gameobject'
-import { Game } from '.'
+import { Game } from './index'
 
 /** Camera Class  */
 export class Camera {
