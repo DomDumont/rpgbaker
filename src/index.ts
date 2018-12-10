@@ -16,18 +16,18 @@ const debug = Debug('OhYes')
 
 /** Game Class  */
 export class Game {
-  currentRoomKey: any
-  rooms: any
+  currentRoomKey: string
+  rooms: Map<string, Room>
   camera: any
   input: any
   groups: any
-  app: any
+  app: PIXI.Application
   nextRoomKey: any
   layers: any
   mousePosition: PIXI.Point
   UI: PIXI.Container
 
-  constructor (newWidth: any, newHeight: any) {
+  constructor (newWidth: number, newHeight: number) {
     debug(
       '%c rpgbaker use pixi version ' + PIXI.VERSION,
       'background: #222;color: #00ffff'
