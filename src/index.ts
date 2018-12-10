@@ -98,7 +98,7 @@ export class Game {
    * @param {string} roomKey - The Room key name
    * @param {Room} roomToAdd - The room object itself
    */
-  AddRoom (roomToAdd: any) {
+  AddRoom (roomToAdd: Room) {
     this.app.stage.addChild(roomToAdd)
     this.rooms.set(roomToAdd.name, roomToAdd)
     this.rooms.get(roomToAdd.name).visible = false
