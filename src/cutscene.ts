@@ -27,7 +27,7 @@ export class CutScene {
   }
 
   Wait (nbSeconds: number) {
-    debug('Wait ' + nbSeconds)
+    // debug('Wait ' + nbSeconds)
     this.timer++
     // TODO change this to ticker.fps
     if (this.timer > nbSeconds * 60) {
@@ -43,7 +43,7 @@ export class CutScene {
     relative: boolean,
     speed: number
   ) {
-    debug('Move ' + objectName)
+    debug('Move ' + objectName + ' ' + x + ' ' + y)
 
     let tempGAO: GameObject = this.room.GetGAOByName(objectName)
     if (tempGAO === undefined) {
@@ -60,11 +60,26 @@ export class CutScene {
       }
     }
 
-    if (
-      Utils.PointDistance(tempGAO.x, tempGAO.y, this.destX, this.destY) >= speed
-    ) {
-      tempGAO.x = this.destX
-      tempGAO.y = this.destY
+    let distanceToTarget: number = Utils.PointDistance(
+      tempGAO.x,
+      tempGAO.y,
+      this.destX,
+      this.destY
+    )
+    debug('distanceToTarget ' + distanceToTarget)
+    if (distanceToTarget >= speed) {
+      let angle: number = Utils.PointDirection(
+        tempGAO.x,
+        tempGAO.y,
+        this.destX,
+        this.destY
+      )
+
+      debug(angle)
+      let ldirx: number = Utils.LengthDirX(speed, angle)
+      let ldiry: number = Utils.LengthDirY(speed, angle)
+      tempGAO.x += ldirx
+      tempGAO.y += ldiry
     } else {
       tempGAO.x = this.destX
       tempGAO.y = this.destY

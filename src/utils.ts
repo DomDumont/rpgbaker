@@ -144,4 +144,28 @@ export class Utils {
   static PointDistance (x1: number, y1: number, x2: number, y2: number): number {
     return Math.hypot(x2 - x1, y2 - y1)
   }
+
+  static PointDirection (
+    x1: number,
+    y1: number,
+    x2: number,
+    y2: number
+  ): number {
+    let deltaX = x2 - x1
+    let deltaY = y2 - y1
+    var aR = Math.atan2(deltaX, deltaY) // Mapped axes!
+    var aD = aR * (180 / Math.PI)
+    if (aD < 0) {
+      aD += 360
+    }
+    return aD
+  }
+
+  static LengthDirX (length: number, angle: number): number {
+    return length * Math.cos((angle * Math.PI) / 180)
+  }
+
+  static LengthDirY (length: number, angle: number): number {
+    return length * Math.sin((angle * Math.PI) / 180)
+  }
 }
