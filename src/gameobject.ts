@@ -133,7 +133,7 @@ export class GameObject extends PIXI.Container {
     x2: number,
     y2: number,
     classNameToCheck: any
-  ) {
+  ): GameObject {
     let gaos = this.room.gaos
 
     let testRectangle: PIXI.Rectangle
@@ -145,17 +145,16 @@ export class GameObject extends PIXI.Container {
       Math.abs(y2 - y1)
     )
 
-    let isThereSomethingUnder = false
     for (let i = 0; i < gaos.length; i++) {
       let element = gaos[i]
       if (element instanceof classNameToCheck && element !== this) {
         if (Utils.HitTestHardCodedRectangle(testRectangle, element) === true) {
-          isThereSomethingUnder = true
+          return element
         }
       }
     }
 
-    return isThereSomethingUnder
+    return null
   }
   /**
    * Returns true if there is an instance of classNameToCheck at position (x,y)
@@ -163,7 +162,7 @@ export class GameObject extends PIXI.Container {
    * @param {*} y y position to check
    * @param {*} classNameToCheck className to check
    */
-  PlaceMeeting (x: any, y: any, classNameToCheck: any) {
+  PlaceMeeting (x: any, y: any, classNameToCheck: any): boolean {
     let gaos = this.room.gaos
 
     let backupX = this.x
@@ -194,7 +193,7 @@ export class GameObject extends PIXI.Container {
    * @param {*} y y position to check
    * @param {*} classNameToCheck className to check
    */
-  InstancePlace (x: any, y: any, classNameToCheck: any) {
+  InstancePlace (x: any, y: any, classNameToCheck: any): GameObject {
     let gaos = this.room.gaos
 
     let backupX = this.x
