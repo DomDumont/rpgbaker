@@ -6,12 +6,13 @@ import * as PIXI from 'pixi.js'
 import Debug from 'debug'
 import { Room } from './room'
 
-export * from './input.js'
-export * from './room.js'
-export * from './gameobject.js'
-export * from './tilemap.js'
-export * from './tilelayer.js'
+export * from './input'
+export * from './room'
+export * from './gameobject'
+export * from './tilemap'
+export * from './tilelayer'
 export * from './utils'
+export * from './cutscene'
 const debug = Debug('OhYes')
 
 /** Game Class  */

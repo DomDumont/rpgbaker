@@ -1,15 +1,16 @@
 import * as PIXI from 'pixi.js'
 import Debug from 'debug'
 import { GameObject } from './gameobject'
+import { Game } from './index'
 const debug = Debug('OhYes')
 
 /** This is a description of the Room
  * @tutorial tutorial-room
  */
 export class Room extends PIXI.Container {
-  gaos: any
-  game: any
-  name: string
+  public gaos: any
+  public game: Game
+  public name: string
 
   roomWidth: number = 0
   roomHeight: number = 0
@@ -52,7 +53,7 @@ export class Room extends PIXI.Container {
    * Try to find a GAO by its name
    * @param nameToGet
    */
-  GetGAOByName (nameToGet: string) {
+  GetGAOByName (nameToGet: string): GameObject {
     for (let i = 0; i < this.gaos.length; i++) {
       let element = this.gaos[i]
       if (element.name === nameToGet) {

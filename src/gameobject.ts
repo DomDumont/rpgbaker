@@ -19,7 +19,7 @@ export class GameObject extends PIXI.Container {
   graphicsHitArea: any
   hitArea: any
 
-  constructor (name: any, myParent: any, jsonObject: any) {
+  constructor (name: string, myParent: Room, jsonObject: any) {
     super()
     this.name = name
     this.room = myParent

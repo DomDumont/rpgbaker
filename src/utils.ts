@@ -140,4 +140,8 @@ export class Utils {
   static GetRandomBool () {
     return Math.random() >= 0.5
   }
+
+  static PointDistance (x1: number, y1: number, x2: number, y2: number): number {
+    return Math.hypot(x2 - x1, y2 - y1)
+  }
 }
