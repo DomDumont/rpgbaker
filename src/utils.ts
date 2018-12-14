@@ -153,7 +153,7 @@ export class Utils {
   ): number {
     let deltaX = x2 - x1
     let deltaY = y2 - y1
-    var aR = Math.atan2(deltaX, deltaY) // Mapped axes!
+    var aR = Math.atan2(deltaY, deltaX) // Mapped axes!
     var aD = aR * (180 / Math.PI)
     if (aD < 0) {
       aD += 360
