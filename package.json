@@ -33,7 +33,6 @@
   "dependencies": {
     "@types/debug": "0.0.31",
     "debug": "^4.1.0",
-    "easystarjs": "^0.4.3",
     "howler": "^2.0.15",
     "pixi.js": "^4.8.2"
   },

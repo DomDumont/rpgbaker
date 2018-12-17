@@ -1,7 +1,7 @@
 import { TileLayer } from './tilelayer'
 import { TileSet } from './tileset'
 import * as PIXI from 'pixi.js'
-import * as EasyStar from 'easystarjs'
+
 
 /** This is a description of the TileMap
  */
@@ -11,7 +11,7 @@ export class TileMap extends PIXI.Container {
   tilesets: any
   loadCallback: any
   graphics: any
-  easystar: any
+
 
   constructor (jsonObject: any, loadCallback: any) {
     super()
@@ -20,7 +20,7 @@ export class TileMap extends PIXI.Container {
     this.tilesets = {}
     this.loadCallback = loadCallback
 
-    this.easystar = new EasyStar.js()
+
   }
 
   // TODO Change this
