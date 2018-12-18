@@ -1,6 +1,7 @@
 import { TileLayer } from './tilelayer'
 import { TileSet } from './tileset'
 import * as PIXI from 'pixi.js'
+import { Graph, GridNode, AStar } from './astar'
 
 /** This is a description of the TileMap
  */

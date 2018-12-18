@@ -5,16 +5,6 @@
 // Includes Binary Heap (with modifications) from Marijn Haverbeke.
 // http://eloquentjavascript.net/appendix2.html
 
-function pathTo (node: any): GridNode[] {
-  var curr = node
-  var path = []
-  while (curr.parent) {
-    path.unshift(curr)
-    curr = curr.parent
-  }
-  return path
-}
-
 /**
       * Perform an A* Search on a graph given a start and end node.
       * @param {Graph} graph
@@ -27,7 +17,7 @@ function pathTo (node: any): GridNode[] {
       *          astar.heuristics).
       */
 
-class AStar {
+export class AStar {
   static Search (
     graph: Graph,
     start: GridNode,
@@ -55,7 +45,7 @@ class AStar {
 
       // End case -- result has been found, return the traced path.
       if (currentNode === end) {
-        return pathTo(currentNode)
+        return AStar.pathTo(currentNode)
       }
 
       // Normal case -- move currentNode from open to closed, process each of its neighbors.
@@ -108,7 +98,7 @@ class AStar {
     }
 
     if (closest) {
-      return pathTo(closestNode)
+      return AStar.pathTo(closestNode)
     }
 
     // No result was found - empty array signifies failure to find path.
@@ -129,6 +119,16 @@ class AStar {
     return D * (d1 + d2) + (D2 - 2 * D) * Math.min(d1, d2)
   }
 
+  static pathTo (node: any): GridNode[] {
+    var curr = node
+    var path = []
+    while (curr.parent) {
+      path.unshift(curr)
+      curr = curr.parent
+    }
+    return path
+  }
+
   static CleanNode (node: any) {
     node.f = 0
     node.g = 0
@@ -146,7 +146,7 @@ class AStar {
  * @param {bool} [options.diagonal] Specifies whether diagonal moves are allowed
  */
 
-class Graph {
+export class Graph {
   nodes: any[]
   diagonal: boolean
   grid: any[]
@@ -252,7 +252,7 @@ class Graph {
   }
 }
 
-class GridNode {
+export class GridNode {
   x: number = 0
   y: number = 0
   weight: number = 0
@@ -287,7 +287,7 @@ class GridNode {
   }
 }
 
-class BinaryHeap {
+export class BinaryHeap {
   content: any[]
   scoreFunction: any
 

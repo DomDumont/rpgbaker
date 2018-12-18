@@ -13,6 +13,7 @@ export * from './tilemap'
 export * from './tilelayer'
 export * from './utils'
 export * from './cutscene'
+export * from './astar'
 const debug = Debug('OhYes')
 
 /** Game Class  */
