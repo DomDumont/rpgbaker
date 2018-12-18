@@ -8,8 +8,8 @@ const debug = Debug('OhYes')
  * @tutorial tutorial-room
  */
 export class Room extends PIXI.Container {
-  public gaos: any
-  public game: Game
+  public gaos: GameObject[]
+  private game: Game
   public name: string
 
   roomWidth: number = 0
@@ -32,6 +32,9 @@ export class Room extends PIXI.Container {
     }
   }
 
+  SetGame (newGame: Game) {
+    this.game = newGame
+  }
   /** This is a description of the Update function. */
   Update (delta: any) {
     for (let i = 0; i < this.gaos.length; i++) {

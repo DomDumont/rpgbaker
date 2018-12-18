@@ -42,15 +42,12 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li>Room</li>
+  <li>BinaryHeap</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
         <li class="active">
             <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
-        </li>
-        <li >
-            <a href="#readme" role="tab" id="readme-tab" data-toggle="tab" data-link="readme">README</a>
         </li>
         <li >
             <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
@@ -63,24 +60,12 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/room.ts</code>
+            <code>src/astar.ts</code>
         </p>
 
-            <p class="comment">
-                <h3>Description</h3>
-            </p>
-            <p class="comment">
-                <p>This is a description of the Room</p>
-
-            </p>
 
 
 
-            <p class="comment">
-                <h3>Example</h3>
-            </p>
-            <div class="io-description">
-            </div>
 
             <section>
     <h3 id="index">Index</h3>
@@ -95,22 +80,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#game">game</a>
+                                <a href="#content">content</a>
                             </li>
                             <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#gaos">gaos</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#name">name</a>
-                            </li>
-                            <li>
-                                <a href="#roomHeight">roomHeight</a>
-                            </li>
-                            <li>
-                                <a href="#roomWidth">roomWidth</a>
+                                <a href="#scoreFunction">scoreFunction</a>
                             </li>
                         </ul>
                     </td>
@@ -125,25 +98,25 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#AddGAO">AddGAO</a>
+                                <a href="#BubbleUp">BubbleUp</a>
                             </li>
                             <li>
-                                <a href="#Destroy">Destroy</a>
+                                <a href="#Pop">Pop</a>
                             </li>
                             <li>
-                                <a href="#GetGAOByName">GetGAOByName</a>
+                                <a href="#Push">Push</a>
                             </li>
                             <li>
-                                <a href="#Init">Init</a>
+                                <a href="#Remove">Remove</a>
                             </li>
                             <li>
-                                <a href="#SetGame">SetGame</a>
+                                <a href="#RescoreElement">RescoreElement</a>
                             </li>
                             <li>
-                                <a href="#TransferPersistentObjectsTo">TransferPersistentObjectsTo</a>
+                                <a href="#SinkDown">SinkDown</a>
                             </li>
                             <li>
-                                <a href="#Update">Update</a>
+                                <a href="#Size">Size</a>
                             </li>
                         </ul>
                     </td>
@@ -163,12 +136,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>constructor(scoreFunction: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/room.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="292" class="link-to-prism">src/astar.ts:292</a></div>
                             </td>
                         </tr>
 
@@ -186,10 +159,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>name</td>
+                                                        <td>scoreFunction</td>
                                                   
                                                         <td>
-                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -215,31 +188,30 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="game"></a>
+                        <a name="content"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Private</span>
-                            game
+                            content
                             </b>
-                            <a href="#game"><span class="icon ion-ios-link"></span></a>
+                            <a href="#content"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>game:     <code><a href="../classes/Game.html" target="_self" >Game</a></code>
+                        <code>content:     <code>any[]</code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../classes/Game.html" target="_self" >Game</a></code>
+                            <i>Type : </i>    <code>any[]</code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/room.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="291" class="link-to-prism">src/astar.ts:291</a></div>
                             </td>
                         </tr>
 
@@ -250,144 +222,30 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="gaos"></a>
+                        <a name="scoreFunction"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Public</span>
-                            gaos
+                            scoreFunction
                             </b>
-                            <a href="#gaos"><span class="icon ion-ios-link"></span></a>
+                            <a href="#scoreFunction"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>gaos:     <code><a href="../classes/GameObject.html" target="_self" >GameObject[]</a></code>
+                        <code>scoreFunction:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../classes/GameObject.html" target="_self" >GameObject[]</a></code>
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/room.ts:11</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="name"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            name
-                            </b>
-                            <a href="#name"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>name:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/room.ts:13</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="roomHeight"></a>
-                        <span class="name">
-                            <b>
-                            roomHeight
-                            </b>
-                            <a href="#roomHeight"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>roomHeight:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>0</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/room.ts:16</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="roomWidth"></a>
-                        <span class="name">
-                            <b>
-                            roomWidth
-                            </b>
-                            <a href="#roomWidth"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>roomWidth:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>0</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/room.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="292" class="link-to-prism">src/astar.ts:292</a></div>
                             </td>
                         </tr>
 
@@ -405,252 +263,25 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="AddGAO"></a>
+                        <a name="BubbleUp"></a>
                         <span class="name">
                             <b>
-                            AddGAO
+                            BubbleUp
                             </b>
-                            <a href="#AddGAO"><span class="icon ion-ios-link"></span></a>
+                            <a href="#BubbleUp"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>AddGAO(newObject: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+<code>BubbleUp(n: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/room.ts:50</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Add Game Object to the list of gameObjects for this room.</p>
-</div>
-
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                                    <td>Description</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>newObject</td>
-                                                        <td>
-                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-
-                                                        <td>
-                                                                <code><p>object to add</p>
-</code>
-                                                        </td>
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="Destroy"></a>
-                        <span class="name">
-                            <b>
-                            Destroy
-                            </b>
-                            <a href="#Destroy"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>Destroy()</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/room.ts:88</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Called when the room is destroyed. Try to destroy all gaos</p>
-</div>
-
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="GetGAOByName"></a>
-                        <span class="name">
-                            <b>
-                            GetGAOByName
-                            </b>
-                            <a href="#GetGAOByName"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>GetGAOByName(nameToGet: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/room.ts:59</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Try to find a GAO by its name</p>
-</div>
-
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>nameToGet</td>
-                                                        <td>
-                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="../classes/GameObject.html" target="_self" >GameObject</a></code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="Init"></a>
-                        <span class="name">
-                            <b>
-                            Init
-                            </b>
-                            <a href="#Init"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>Init()</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/room.ts:25</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>This is a description of the Init function. </p>
-</div>
-
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="SetGame"></a>
-                        <span class="name">
-                            <b>
-                            SetGame
-                            </b>
-                            <a href="#SetGame"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>SetGame(newGame: <a href="../classes/Game.html">Game</a>)</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/room.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="369" class="link-to-prism">src/astar.ts:369</a></div>
                             </td>
                         </tr>
 
@@ -670,147 +301,7 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>newGame</td>
-                                                        <td>
-                                                                    <code><a href="../classes/Game.html" target="_self" >Game</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="TransferPersistentObjectsTo"></a>
-                        <span class="name">
-                            <b>
-                            TransferPersistentObjectsTo
-                            </b>
-                            <a href="#TransferPersistentObjectsTo"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>TransferPersistentObjectsTo(newRoom: <a href="../classes/Room.html">Room</a>)</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/room.ts:70</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>newRoom</td>
-                                                        <td>
-                                                                    <code><a href="../classes/Room.html" target="_self" >Room</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="Update"></a>
-                        <span class="name">
-                            <b>
-                            Update
-                            </b>
-                            <a href="#Update"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>Update(delta: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/room.ts:39</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>This is a description of the Update function. </p>
-</div>
-
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>delta</td>
+                                                        <td>n</td>
                                                         <td>
                                                                     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
                                                         </td>
@@ -833,6 +324,358 @@
                                 <div class="io-description">
                                     
                                 </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="Pop"></a>
+                        <span class="name">
+                            <b>
+                            Pop
+                            </b>
+                            <a href="#Pop"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>Pop()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="307" class="link-to-prism">src/astar.ts:307</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="Push"></a>
+                        <span class="name">
+                            <b>
+                            Push
+                            </b>
+                            <a href="#Push"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>Push(element: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="299" class="link-to-prism">src/astar.ts:299</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>element</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="Remove"></a>
+                        <span class="name">
+                            <b>
+                            Remove
+                            </b>
+                            <a href="#Remove"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>Remove(node: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="320" class="link-to-prism">src/astar.ts:320</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>node</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="RescoreElement"></a>
+                        <span class="name">
+                            <b>
+                            RescoreElement
+                            </b>
+                            <a href="#RescoreElement"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>RescoreElement(node: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="342" class="link-to-prism">src/astar.ts:342</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>node</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="SinkDown"></a>
+                        <span class="name">
+                            <b>
+                            SinkDown
+                            </b>
+                            <a href="#SinkDown"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>SinkDown(n: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="346" class="link-to-prism">src/astar.ts:346</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>n</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="Size"></a>
+                        <span class="name">
+                            <b>
+                            Size
+                            </b>
+                            <a href="#Size"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>Size()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="338" class="link-to-prism">src/astar.ts:338</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
                     </td>
                 </tr>
             </tbody>
@@ -846,132 +689,402 @@
 
     </div>
 
-    <div class="tab-pane fade " id="c-readme">
-        <p><h2 id="create-your-room-by-subclassing-a-room">Create your room by subclassing a Room</h2>
-<div><pre class="line-numbers"><code class="language-javascript">import { Room } from &#39;rpgbaker&#39;
-
-export default class RoomMenu extends Room {
-Init () {
-console.log(&#39;RoomMenu Init&#39;)
-super.Init()
-}
-
-Update (delta) {
-super.Update(delta)
-}
-}</code></pre></div><h2 id="add-your-new-room-to-your-game">Add your new Room to your Game</h2>
-<div><pre class="line-numbers"><code class="language-javascript">import { Game } from &#39;rpgbaker&#39;
-import RoomMenu from &#39;./rooms/room_menu&#39;
-
-let myGame = new Game(800, 600)
-
-myGame.AddRoom(&#39;MenuRoom&#39;, new RoomMenu())
-myGame.Init()
-myGame.RoomGoto(&#39;MainRoom&#39;)</code></pre></div></p>
-    </div>
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import * as PIXI from &#x27;pixi.js&#x27;
-import Debug from &#x27;debug&#x27;
-import { GameObject } from &#x27;./gameobject&#x27;
-import { Game } from &#x27;./index&#x27;
-const debug &#x3D; Debug(&#x27;OhYes&#x27;)
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class AStar {
+  static Search (
+    graph: Graph,
+    start: GridNode,
+    end: GridNode,
+    options: any
+  ): GridNode[] {
+    graph.CleanDirty()
+    options &#x3D; options || {}
+    var heuristic &#x3D; this.Manhattan
+    var closest &#x3D; options.closest || false
 
-/** This is a description of the Room
- * @tutorial tutorial-room
- */
-export class Room extends PIXI.Container {
-  public gaos: GameObject[]
-  private game: Game
-  public name: string
+    var openHeap &#x3D; new BinaryHeap(function (node: any) {
+      return node.f
+    })
+    var closestNode &#x3D; start // set the start node to be the closest if required
 
-  roomWidth: number &#x3D; 0
-  roomHeight: number &#x3D; 0
+    start.h &#x3D; heuristic(start, end)
+    graph.MarkDirty(start)
 
-  constructor (name: string) {
-    super()
-    this.gaos &#x3D; []
-    this.game &#x3D; undefined
-    this.name &#x3D; name
-  }
-  /** This is a description of the Init function. */
-  Init () {
-    for (let i &#x3D; 0; i &lt; this.gaos.length; i++) {
-      let element &#x3D; this.gaos[i]
-      if (element.persistent &#x3D;&#x3D;&#x3D; false) {
-        element.Init()
+    openHeap.Push(start)
+
+    while (openHeap.Size() &gt; 0) {
+      // Grab the lowest f(x) to process next.  Heap keeps this sorted for us.
+      var currentNode &#x3D; openHeap.Pop()
+
+      // End case -- result has been found, return the traced path.
+      if (currentNode &#x3D;&#x3D;&#x3D; end) {
+        return AStar.pathTo(currentNode)
       }
-      element.OnRoomStart()
-    }
-  }
 
-  SetGame (newGame: Game) {
-    this.game &#x3D; newGame
-  }
-  /** This is a description of the Update function. */
-  Update (delta: any) {
-    for (let i &#x3D; 0; i &lt; this.gaos.length; i++) {
-      let element &#x3D; this.gaos[i]
-      element.Update(delta)
-    }
-  }
-  /**
-   * Add Game Object to the list of gameObjects for this room.
-   * @param {*} tilelayer parent layer , the object will be attached to this layer
-   * @param {*} newObject object to add
-   */
-  AddGAO (newObject: any) {
-    debug(&#x27;AddGAO &#x27; + newObject.name)
-    this.gaos.push(newObject)
-  }
+      // Normal case -- move currentNode from open to closed, process each of its neighbors.
+      currentNode.closed &#x3D; true
 
-  /**
-   * Try to find a GAO by its name
-   * @param nameToGet
-   */
-  GetGAOByName (nameToGet: string): GameObject {
-    for (let i &#x3D; 0; i &lt; this.gaos.length; i++) {
-      let element &#x3D; this.gaos[i]
-      if (element.name &#x3D;&#x3D;&#x3D; nameToGet) {
-        return element
-      }
-    }
+      // Find all neighbors for the current node.
+      var neighbors &#x3D; graph.Neighbors(currentNode)
 
-    return undefined
-  }
+      for (var i &#x3D; 0, il &#x3D; neighbors.length; i &lt; il; ++i) {
+        let neighbor: GridNode &#x3D; neighbors[i]
 
-  TransferPersistentObjectsTo (newRoom: Room) {
-    for (let i &#x3D; 0; i &lt; this.gaos.length; i++) {
-      let element: GameObject &#x3D; this.gaos[i] as GameObject
-      if (element.persistent &#x3D;&#x3D;&#x3D; true) {
-        debug(&#x27;Transfert &#x27; + element.constructor.name)
-        element.room &#x3D; newRoom
-        newRoom.AddGAO(element)
-        if (element.parent !&#x3D;&#x3D; this.game.UI) {
-          newRoom.addChild(element)
-        } else {
-          this.game.UI.addChild(element)
+        if (neighbor.closed || neighbor.IsWall()) {
+          // Not a valid node to process, skip to next neighbor.
+          continue
+        }
+
+        // The g score is the shortest distance from start to current node.
+        // We need to check if the path we have arrived at this neighbor is the shortest one we have seen yet.
+        var gScore &#x3D; currentNode.g + neighbor.GetCost(currentNode)
+        var beenVisited &#x3D; neighbor.visited
+
+        if (!beenVisited || gScore &lt; neighbor.g) {
+          // Found an optimal (so far) path to this node.  Take score for node to see how good it is.
+          neighbor.visited &#x3D; true
+          neighbor.parent &#x3D; currentNode
+          neighbor.h &#x3D; neighbor.h || heuristic(neighbor, end)
+          neighbor.g &#x3D; gScore
+          neighbor.f &#x3D; neighbor.g + neighbor.h
+          graph.MarkDirty(neighbor)
+          if (closest) {
+            // If the neighbour is closer than the current closestNode or if it&#x27;s equally close but has
+            // a cheaper path than the current closest node then it becomes the closest node
+            if (
+              neighbor.h &lt; closestNode.h ||
+              (neighbor.h &#x3D;&#x3D;&#x3D; closestNode.h &amp;&amp; neighbor.g &lt; closestNode.g)
+            ) {
+              closestNode &#x3D; neighbor
+            }
+          }
+
+          if (!beenVisited) {
+            // Pushing to heap will put it in proper place based on the &#x27;f&#x27; value.
+            openHeap.Push(neighbor)
+          } else {
+            // Already seen the node, but since it has been rescored we need to reorder it in the heap
+            openHeap.RescoreElement(neighbor)
+          }
         }
       }
     }
-  }
-  /**
-   * Called when the room is destroyed. Try to destroy all gaos
-   */
-  Destroy () {
-    debug(&#x27;Method Destroy of &#x27; + this.name)
-    for (let i &#x3D; 0; i &lt; this.gaos.length; i++) {
-      let element &#x3D; this.gaos[i]
-      debug(&#x27;Destroy element &#x27; + element.name)
-      if (element.persistent &#x3D;&#x3D;&#x3D; false) {
-        element.Destroy()
-        this.removeChild(element)
-      }
-      element.OnRoomEnd()
+
+    if (closest) {
+      return AStar.pathTo(closestNode)
     }
 
-    debug(&#x27;removeChildren &#x27;)
-    this.gaos &#x3D; []
+    // No result was found - empty array signifies failure to find path.
+    return []
+  }
+  // See list of heuristics: http://theory.stanford.edu/~amitp/GameProgramming/Heuristics.html
+
+  static Manhattan (pos0: any, pos1: any) {
+    var d1 &#x3D; Math.abs(pos1.x - pos0.x)
+    var d2 &#x3D; Math.abs(pos1.y - pos0.y)
+    return d1 + d2
+  }
+  static Diagonal (pos0: any, pos1: any) {
+    var D &#x3D; 1
+    var D2 &#x3D; Math.sqrt(2)
+    var d1 &#x3D; Math.abs(pos1.x - pos0.x)
+    var d2 &#x3D; Math.abs(pos1.y - pos0.y)
+    return D * (d1 + d2) + (D2 - 2 * D) * Math.min(d1, d2)
+  }
+
+  static pathTo (node: any): GridNode[] {
+    var curr &#x3D; node
+    var path &#x3D; []
+    while (curr.parent) {
+      path.unshift(curr)
+      curr &#x3D; curr.parent
+    }
+    return path
+  }
+
+  static CleanNode (node: any) {
+    node.f &#x3D; 0
+    node.g &#x3D; 0
+    node.h &#x3D; 0
+    node.visited &#x3D; false
+    node.closed &#x3D; false
+    node.parent &#x3D; null
+  }
+}
+
+/**
+ * A graph memory structure
+ * @param {Array} gridIn 2D array of input weights
+ * @param {Object} [options]
+ * @param {bool} [options.diagonal] Specifies whether diagonal moves are allowed
+ */
+
+export class Graph {
+  nodes: any[]
+  diagonal: boolean
+  grid: any[]
+  dirtyNodes: any[]
+  constructor (gridIn: any, options: any) {
+    options &#x3D; options || {}
+    this.nodes &#x3D; []
+    this.diagonal &#x3D; !!options.diagonal
+    this.grid &#x3D; []
+    for (var x &#x3D; 0; x &lt; gridIn.length; x++) {
+      this.grid[x] &#x3D; []
+
+      for (var y &#x3D; 0, row &#x3D; gridIn[x]; y &lt; row.length; y++) {
+        var node &#x3D; new GridNode(x, y, row[y])
+        this.grid[x][y] &#x3D; node
+        this.nodes.push(node)
+      }
+    }
+    this.Init()
+  }
+
+  Init () {
+    this.dirtyNodes &#x3D; []
+    for (var i &#x3D; 0; i &lt; this.nodes.length; i++) {
+      AStar.CleanNode(this.nodes[i])
+    }
+  }
+
+  CleanDirty () {
+    for (var i &#x3D; 0; i &lt; this.dirtyNodes.length; i++) {
+      AStar.CleanNode(this.dirtyNodes[i])
+    }
+    this.dirtyNodes &#x3D; []
+  }
+
+  MarkDirty (node: any) {
+    this.dirtyNodes.push(node)
+  }
+
+  Neighbors (node: any) {
+    var ret &#x3D; []
+    var x &#x3D; node.x
+    var y &#x3D; node.y
+    var grid &#x3D; this.grid
+
+    // West
+    if (grid[x - 1] &amp;&amp; grid[x - 1][y]) {
+      ret.push(grid[x - 1][y])
+    }
+
+    // East
+    if (grid[x + 1] &amp;&amp; grid[x + 1][y]) {
+      ret.push(grid[x + 1][y])
+    }
+
+    // South
+    if (grid[x] &amp;&amp; grid[x][y - 1]) {
+      ret.push(grid[x][y - 1])
+    }
+
+    // North
+    if (grid[x] &amp;&amp; grid[x][y + 1]) {
+      ret.push(grid[x][y + 1])
+    }
+
+    if (this.diagonal) {
+      // Southwest
+      if (grid[x - 1] &amp;&amp; grid[x - 1][y - 1]) {
+        ret.push(grid[x - 1][y - 1])
+      }
+
+      // Southeast
+      if (grid[x + 1] &amp;&amp; grid[x + 1][y - 1]) {
+        ret.push(grid[x + 1][y - 1])
+      }
+
+      // Northwest
+      if (grid[x - 1] &amp;&amp; grid[x - 1][y + 1]) {
+        ret.push(grid[x - 1][y + 1])
+      }
+
+      // Northeast
+      if (grid[x + 1] &amp;&amp; grid[x + 1][y + 1]) {
+        ret.push(grid[x + 1][y + 1])
+      }
+    }
+
+    return ret
+  }
+
+  ToString () {
+    var graphString &#x3D; []
+    var nodes &#x3D; this.grid
+    for (var x &#x3D; 0; x &lt; nodes.length; x++) {
+      var rowDebug &#x3D; []
+      var row &#x3D; nodes[x]
+      for (var y &#x3D; 0; y &lt; row.length; y++) {
+        rowDebug.push(row[y].weight)
+      }
+      graphString.push(rowDebug.join(&#x27; &#x27;))
+    }
+    return graphString.join(&#x27;\n&#x27;)
+  }
+}
+
+export class GridNode {
+  x: number &#x3D; 0
+  y: number &#x3D; 0
+  weight: number &#x3D; 0
+
+  f: number &#x3D; 0
+  g: number &#x3D; 0
+  h: number &#x3D; 0
+  visited: boolean &#x3D; false
+  closed: boolean &#x3D; false
+  parent: any &#x3D; null
+
+  constructor (x: any, y: any, weight: any) {
+    this.x &#x3D; x
+    this.y &#x3D; y
+    this.weight &#x3D; weight
+  }
+
+  ToString () {
+    return &#x27;[&#x27; + this.x + &#x27; &#x27; + this.y + &#x27;]&#x27;
+  }
+
+  GetCost (fromNeighbor: any) {
+    // Take diagonal weight into consideration.
+    if (fromNeighbor &amp;&amp; fromNeighbor.x !&#x3D; this.x &amp;&amp; fromNeighbor.y !&#x3D; this.y) {
+      return this.weight * 1.41421
+    }
+    return this.weight
+  }
+
+  IsWall () {
+    return this.weight &#x3D;&#x3D;&#x3D; 0
+  }
+}
+
+export class BinaryHeap {
+  content: any[]
+  scoreFunction: any
+
+  constructor (scoreFunction: any) {
+    this.content &#x3D; []
+    this.scoreFunction &#x3D; scoreFunction
+  }
+
+  Push (element: any) {
+    // Add the new element to the end of the array.
+    this.content.push(element)
+
+    // Allow it to sink down.
+    this.SinkDown(this.content.length - 1)
+  }
+
+  Pop () {
+    // Store the first element so we can return it later.
+    var result &#x3D; this.content[0]
+    // Get the element at the end of the array.
+    var end &#x3D; this.content.pop()
+    // If there are any elements left, put the end element at the
+    // start, and let it bubble up.
+    if (this.content.length &gt; 0) {
+      this.content[0] &#x3D; end
+      this.BubbleUp(0)
+    }
+    return result
+  }
+  Remove (node: any) {
+    var i &#x3D; this.content.indexOf(node)
+
+    // When it is found, the process seen in &#x27;pop&#x27; is repeated
+    // to fill up the hole.
+    var end &#x3D; this.content.pop()
+
+    if (i !&#x3D;&#x3D; this.content.length - 1) {
+      this.content[i] &#x3D; end
+
+      if (this.scoreFunction(end) &lt; this.scoreFunction(node)) {
+        this.SinkDown(i)
+      } else {
+        this.BubbleUp(i)
+      }
+    }
+  }
+
+  Size () {
+    return this.content.length
+  }
+
+  RescoreElement (node: any) {
+    this.SinkDown(this.content.indexOf(node))
+  }
+
+  SinkDown (n: any) {
+    // Fetch the element that has to be sunk.
+    var element &#x3D; this.content[n]
+
+    // When at 0, an element can not sink any further.
+    while (n &gt; 0) {
+      // Compute the parent element&#x27;s index, and fetch it.
+      var parentN &#x3D; ((n + 1) &gt;&gt; 1) - 1
+      var parent &#x3D; this.content[parentN]
+      // Swap the elements if the parent is greater.
+      if (this.scoreFunction(element) &lt; this.scoreFunction(parent)) {
+        this.content[parentN] &#x3D; element
+        this.content[n] &#x3D; parent
+        // Update &#x27;n&#x27; to continue at the new position.
+        n &#x3D; parentN
+      }
+      // Found a parent that is less, no need to sink any further.
+      else {
+        break
+      }
+    }
+  }
+
+  BubbleUp (n: any) {
+    // Look up the target element and its score.
+    var length &#x3D; this.content.length
+    var element &#x3D; this.content[n]
+    var elemScore &#x3D; this.scoreFunction(element)
+
+    while (true) {
+      // Compute the indices of the child elements.
+      var child2N &#x3D; (n + 1) &lt;&lt; 1
+      var child1N &#x3D; child2N - 1
+      // This is used to store the new position of the element, if any.
+      var swap &#x3D; null
+      var child1Score
+      // If the first child exists (is inside the array)...
+      if (child1N &lt; length) {
+        // Look it up and compute its score.
+        var child1 &#x3D; this.content[child1N]
+        child1Score &#x3D; this.scoreFunction(child1)
+
+        // If the score is less than our element&#x27;s, we need to swap.
+        if (child1Score &lt; elemScore) {
+          swap &#x3D; child1N
+        }
+      }
+
+      // Do the same checks for the other child.
+      if (child2N &lt; length) {
+        var child2 &#x3D; this.content[child2N]
+        var child2Score &#x3D; this.scoreFunction(child2)
+        if (child2Score &lt; (swap &#x3D;&#x3D;&#x3D; null ? elemScore : child1Score)) {
+          swap &#x3D; child2N
+        }
+      }
+
+      // If the element needs to be moved, swap it, and continue.
+      if (swap !&#x3D;&#x3D; null) {
+        this.content[n] &#x3D; this.content[swap]
+        this.content[swap] &#x3D; element
+        n &#x3D; swap
+      }
+      // Otherwise, we are done.
+      else {
+        break
+      }
+    }
   }
 }
 </code></pre>
@@ -1001,7 +1114,7 @@ export class Room extends PIXI.Container {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'Room.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'BinaryHeap.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

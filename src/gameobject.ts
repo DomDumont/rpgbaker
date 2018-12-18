@@ -16,8 +16,8 @@ export class GameObject extends PIXI.Container {
   jsonObject: any
   persistent: boolean
   alarms: any
-  graphicsHitArea: any
-  hitArea: any
+  graphicsHitArea: PIXI.Graphics
+  hitArea: PIXI.Rectangle
 
   constructor (name: string, myParent: Room, jsonObject: any) {
     super()
