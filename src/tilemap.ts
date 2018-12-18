@@ -19,6 +19,7 @@ export class TileMap extends PIXI.Container {
     this.layers = {}
     this.tilesets = {}
     this.loadCallback = loadCallback
+    this.grid = []
   }
 
   // TODO Change this
@@ -42,9 +43,15 @@ export class TileMap extends PIXI.Container {
   }
 
   InitGridFromLayer (layer: TileLayer) {
+    this.grid = []
     for (let i = 0; i < this.jsonObject.width; i++) {
+      this.grid[i] = []
       for (let j = 0; j < this.jsonObject.height; j++) {
-        this.grid[i][j] = layer.GetData(i, j)
+        if (layer.GetData(i, j) !== 0) {
+          this.grid[i][j] = 0
+        } else {
+          this.grid[i][j] = 1
+        }
       }
     }
     this.graph = new Graph(this.grid, {})
@@ -57,8 +64,8 @@ export class TileMap extends PIXI.Container {
   }
 
   FindPath (fromX: number, fromY: number, toX: number, toY: number): GridNode[] {
-    let startNode: GridNode = new GridNode(fromX, fromY, 0)
-    let endNode: GridNode = new GridNode(toX, toY, 0)
+    let startNode: GridNode = this.graph.grid[fromX][fromY]
+    let endNode: GridNode = this.graph.grid[toX][toY]
     return AStar.Search(this.graph, startNode, endNode, {})
   }
   FindTilesetForGID (gid: any) {

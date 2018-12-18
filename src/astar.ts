@@ -55,16 +55,16 @@ export class AStar {
       var neighbors = graph.Neighbors(currentNode)
 
       for (var i = 0, il = neighbors.length; i < il; ++i) {
-        var neighbor = neighbors[i]
+        let neighbor: GridNode = neighbors[i]
 
-        if (neighbor.closed || neighbor.isWall()) {
+        if (neighbor.closed || neighbor.IsWall()) {
           // Not a valid node to process, skip to next neighbor.
           continue
         }
 
         // The g score is the shortest distance from start to current node.
         // We need to check if the path we have arrived at this neighbor is the shortest one we have seen yet.
-        var gScore = currentNode.g + neighbor.getCost(currentNode)
+        var gScore = currentNode.g + neighbor.GetCost(currentNode)
         var beenVisited = neighbor.visited
 
         if (!beenVisited || gScore < neighbor.g) {
