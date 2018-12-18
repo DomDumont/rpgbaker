@@ -2,7 +2,6 @@ import { TileLayer } from './tilelayer'
 import { TileSet } from './tileset'
 import * as PIXI from 'pixi.js'
 
-
 /** This is a description of the TileMap
  */
 export class TileMap extends PIXI.Container {
@@ -10,8 +9,8 @@ export class TileMap extends PIXI.Container {
   layers: any
   tilesets: any
   loadCallback: any
-  graphics: any
-
+  grid: number[][]
+  graph: Graph
 
   constructor (jsonObject: any, loadCallback: any) {
     super()
@@ -19,8 +18,6 @@ export class TileMap extends PIXI.Container {
     this.layers = {}
     this.tilesets = {}
     this.loadCallback = loadCallback
-
-
   }
 
   // TODO Change this
@@ -31,22 +28,26 @@ export class TileMap extends PIXI.Container {
       this.tilesets[tileset.name].Init()
     })
 
-    this.graphics = new PIXI.Graphics()
-    this.graphics.lineStyle(2, 0x0000ff, 1)
-    this.graphics.beginFill(0xff700b, 1)
-    this.graphics.drawRect(50, 250, 250, 250)
-    this.graphics.endFill()
-    // this.addChild(this.graphics)
-
     this.jsonObject.layers.forEach((layer: any) => {
       // debug('renderLayer ' + layer.name)
       this.layers[layer.name] = new TileLayer(this, layer, this.loadCallback)
       this.layers[layer.name].Init()
       // debug('addchild du tile ' + layer.name)
+      if (layer.name === 'Col') {
+        this.InitGridFromLayer(this.layers[layer.name])
+      }
       this.addChild(this.layers[layer.name])
     })
   }
 
+  InitGridFromLayer (layer: TileLayer) {
+    for (let i = 0; i < this.jsonObject.width; i++) {
+      for (let j = 0; j < this.jsonObject.height; j++) {
+        this.grid[i][j] = layer.GetData(i, j)
+      }
+    }
+    this.graph = new Graph(this.grid, {})
+  }
   Update (delta: any) {
     for (const [key, value] of Object.entries(this.layers)) {
       let tempLayer: TileLayer = value as TileLayer
@@ -54,6 +55,11 @@ export class TileMap extends PIXI.Container {
     }
   }
 
+  FindPath (fromX: number, fromY: number, toX: number, toY: number): GridNode[] {
+    let startNode: GridNode = new GridNode(fromX, fromY, 0)
+    let endNode: GridNode = new GridNode(toX, toY, 0)
+    return AStar.Search(this.graph, startNode, endNode, {})
+  }
   FindTilesetForGID (gid: any) {
     let minDifference = 0xffff
     let minKey: any
@@ -64,8 +70,6 @@ export class TileMap extends PIXI.Container {
         minDifference = tempDiff
         minKey = key
       }
-      // key: the name of the object key
-      // index: the ordinal position of the key within the object
     }
 
     return this.tilesets[minKey]

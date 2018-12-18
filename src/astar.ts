@@ -5,7 +5,7 @@
 // Includes Binary Heap (with modifications) from Marijn Haverbeke.
 // http://eloquentjavascript.net/appendix2.html
 
-function pathTo (node: any) {
+function pathTo (node: any): GridNode[] {
   var curr = node
   var path = []
   while (curr.parent) {
@@ -13,12 +13,6 @@ function pathTo (node: any) {
     curr = curr.parent
   }
   return path
-}
-
-function getHeap () {
-  return new BinaryHeap(function (node: any) {
-    return node.f
-  })
 }
 
 /**
@@ -34,17 +28,24 @@ function getHeap () {
       */
 
 class AStar {
-  Search (graph: any, start: any, end: any, options: any) {
-    graph.cleanDirty()
+  static Search (
+    graph: Graph,
+    start: GridNode,
+    end: GridNode,
+    options: any
+  ): GridNode[] {
+    graph.CleanDirty()
     options = options || {}
     var heuristic = this.Manhattan
     var closest = options.closest || false
 
-    var openHeap = getHeap()
+    var openHeap = new BinaryHeap(function (node: any) {
+      return node.f
+    })
     var closestNode = start // set the start node to be the closest if required
 
     start.h = heuristic(start, end)
-    graph.markDirty(start)
+    graph.MarkDirty(start)
 
     openHeap.Push(start)
 
@@ -61,7 +62,7 @@ class AStar {
       currentNode.closed = true
 
       // Find all neighbors for the current node.
-      var neighbors = graph.neighbors(currentNode)
+      var neighbors = graph.Neighbors(currentNode)
 
       for (var i = 0, il = neighbors.length; i < il; ++i) {
         var neighbor = neighbors[i]
@@ -83,7 +84,7 @@ class AStar {
           neighbor.h = neighbor.h || heuristic(neighbor, end)
           neighbor.g = gScore
           neighbor.f = neighbor.g + neighbor.h
-          graph.markDirty(neighbor)
+          graph.MarkDirty(neighbor)
           if (closest) {
             // If the neighbour is closer than the current closestNode or if it's equally close but has
             // a cheaper path than the current closest node then it becomes the closest node
@@ -115,12 +116,12 @@ class AStar {
   }
   // See list of heuristics: http://theory.stanford.edu/~amitp/GameProgramming/Heuristics.html
 
-  Manhattan (pos0: any, pos1: any) {
+  static Manhattan (pos0: any, pos1: any) {
     var d1 = Math.abs(pos1.x - pos0.x)
     var d2 = Math.abs(pos1.y - pos0.y)
     return d1 + d2
   }
-  Diagonal (pos0: any, pos1: any) {
+  static Diagonal (pos0: any, pos1: any) {
     var D = 1
     var D2 = Math.sqrt(2)
     var d1 = Math.abs(pos1.x - pos0.x)
@@ -255,6 +256,13 @@ class GridNode {
   x: number = 0
   y: number = 0
   weight: number = 0
+
+  f: number = 0
+  g: number = 0
+  h: number = 0
+  visited: boolean = false
+  closed: boolean = false
+  parent: any = null
 
   constructor (x: any, y: any, weight: any) {
     this.x = x
