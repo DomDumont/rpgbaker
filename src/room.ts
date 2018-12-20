@@ -9,7 +9,7 @@ const debug = Debug('OhYes')
  */
 export class Room extends PIXI.Container {
   public gaos: GameObject[]
-  private game: Game
+  private _game: Game
   public name: string
 
   roomWidth: number = 0
@@ -18,7 +18,7 @@ export class Room extends PIXI.Container {
   constructor (name: string) {
     super()
     this.gaos = []
-    this.game = undefined
+    this._game = undefined
     this.name = name
   }
   /** This is a description of the Init function. */
@@ -32,8 +32,11 @@ export class Room extends PIXI.Container {
     }
   }
 
-  SetGame (newGame: Game) {
-    this.game = newGame
+  public get Game (): Game {
+    return this._game
+  }
+  public set Game (value: Game) {
+    this._game = value
   }
   /** This is a description of the Update function. */
   Update (delta: any) {
@@ -74,10 +77,10 @@ export class Room extends PIXI.Container {
         debug('Transfert ' + element.constructor.name)
         element.room = newRoom
         newRoom.AddGAO(element)
-        if (element.parent !== this.game.UI) {
+        if (element.parent !== this._game.UI) {
           newRoom.addChild(element)
         } else {
-          this.game.UI.addChild(element)
+          this._game.UI.addChild(element)
         }
       }
     }

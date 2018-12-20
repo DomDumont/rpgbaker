@@ -104,7 +104,7 @@ export class Game {
     this.app.stage.addChild(roomToAdd)
     this.rooms.set(roomToAdd.name, roomToAdd)
     this.rooms.get(roomToAdd.name).visible = false
-    roomToAdd.SetGame(this)
+    roomToAdd.Game = this
   }
 
   /**
