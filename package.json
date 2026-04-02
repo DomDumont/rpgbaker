@@ -7,15 +7,7 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "oldbuild": "babel src --out-dir lib",
-    "oldwatch": "babel src --out-dir lib --watch",
-    "olddocs": "jsdoc  src -r src/README.md -u ./tutorials  -d docs",
     "docs": "compodoc --includes ./tutorials -p ./tsconfig.json -d ./docs "
-  },
-  "babel": {
-    "presets": [
-      "es2015"
-    ]
   },
   "repository": {
     "type": "git",
@@ -32,21 +24,17 @@
   "homepage": "https://github.com/DomDumont/rpgbaker#readme",
   "dependencies": {
     "@types/debug": "0.0.31",
-    "debug": "^4.1.1",
+    "debug": "^4.3.4",
     "howler": "^2.2.0",
     "pixi.js": "^4.8.9"
   },
   "devDependencies": {
     "@types/pixi.js": "^4.8.9",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-preset-es2015": "^6.24.1",
-    "eslint": "^5.16.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "jsdoc": "^3.6.4"
+    "eslint": "^8.57.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1",
+    "jsdoc": "^4.0.2"
   }
 }
